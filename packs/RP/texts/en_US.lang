@@ -1,0 +1,197 @@
+## =============================================================================
+## PACK METADATA
+## =============================================================================
+pack.name=§9§lBeyond §eHorizons §6Preview
+pack.description=§2An add-on with various features to explore and create; to use all the features, activate the beta API and your game must be in beta. 
+
+## =============================================================================
+## UI & PROFILE SYSTEM
+## =============================================================================
+itemGroup.bs:itemGroup.ui=Ui
+item.bs:profile=Profile
+item.button.profile=Opened the menu
+
+bs.title.profile.main=§l§2Hi %s
+bs.button.info.profile=Info
+bs.button.my_friends.profile=My friends
+bs.button.quest.profile=Quest
+bs.button.how_to_play.profile=How to play?
+bs.button.settings.profile=Settings
+bs.button.chargelogs.profile=Changelogs
+bs.button.faq.profile=FAQ
+
+## System Messages & Dialogs
+bs.title.comming=§2Coming soon. 
+bs.body.comming=§3This add-on is under development and this feature may be arriving soon, so stay tuned for updates.
+bs.message.player_offline=§cThis player is currently offline.
+
+## =============================================================================
+## FRIENDS & INVITES SYSTEM
+## =============================================================================
+## Titles & Labels
+bs.title.my_friends=§l§6My Friends
+bs.body.my_friends=§7Manage your friend list and invites below:
+bs.label.myfriends_empty.myfriends=§7You don't have any friends added yet.
+bs.button.add_friend.my_friends=Add Friend
+bs.button.my_friends.invite=Pending Invites
+
+bs.title.addfriend.AddFriend=§l§2Add Friend
+bs.label.enptyPlayers.Addfriend=§7No eligible players online to send an invite.
+
+bs.title.invites.invites=§l§eFriend Invites
+bs.label.empyty_invites.invites=§7You have no pending friend invites.
+
+bs.title.invite=§l§aFriend Request
+bs.body.invite_request=%s wants to be your friend. Do you accept?
+
+bs.title.friend.friendOptions=§l§3Friend Options: %s
+bs.button.statistics.friendOptions=Statistics
+bs.button.remove.friendOptions=Remove Friend
+
+bs.title.remove.friendRemove=§l§cRemove Friend
+bs.body.remove.friendRemove=§7Are you sure you want to remove %s from your friend list?
+
+bs.title.friend_statics=§l§bFriend Statistics
+bs.body.friend_statics=§7Detailed statistics for this player:
+bs.button.back.friend_statics=Back
+
+## Generic Buttons
+bs.button.accept=Accept
+bs.button.decline=Decline
+bs.button.cancel=Cancel
+
+## Friend System Messages
+bs.message.invite_sent=§aFriend request sent to %s.
+bs.message.invite_received=§eYou received a friend request from %s!
+bs.message.now_friends=§aYou and %s are now friends!
+bs.message.friend_accepted=§a%s accepted your friend request!
+bs.message.invite_declined=§cInvite declined.
+bs.message.friend_denied=§c%s declined your friend request.
+bs.message.friend_removed=§cYou removed %s from your friends.
+bs.message.remove.friendRemove=§c%s removed you from their friend list.
+
+## =============================================================================
+## QUICK SETTINGS & CONFIGURATIONS
+## =============================================================================
+bs.title.settings.main=§l§dSettings
+bs.body.settings.main=§7Select a category to customize your experience:
+bs.button.waila.settings.main=WAILA
+bs.button.quick_settings.settings.main=Quick Settings
+
+bs.title.quick_settings=§l§dQuick settings for %s
+bs.toggle.waila_show.quick_settings=WAILA Overlay
+bs.toggle.speed_show.quick_settings=Show Speed
+bs.toggle.wellcome_show.quick_settings=Welcome Message
+bs.toggle.speed_show_stop.quick_settings=Show speed when stationary
+bs.toggle.speed_score.quick_settings=Display statistics in a table
+bs.toggle.stop_score.quick_settings=Show speed in a menu
+bs.toggle.biome_find.quick_settings=Show Biome Name
+
+bs.label.definitions.quick_settings=§l§eDefinitions
+bs.label.speed_definitions.quick_settings=§l§eSpeed Settings
+bs.slider.updatefunctions.quick_settings=Function update in ticks: %s
+bs.slider.floating-point.quick_settings=Decimal digits precision
+
+## =============================================================================
+## WAILA SETTINGS
+## =============================================================================
+waila.settings.title=WAILA Settings
+waila.settings.title_for=WAILA Settings for %s
+waila.settings.submit=Save Changes
+waila.settings.footer.self_adjusting=§7This adjusts how WAILA behaves for you.§r
+waila.settings.footer.other_player=§7Editing WAILA settings for %s.§r
+waila.settings.category.general=GENERAL
+waila.settings.category.displayContent=DISPLAY CONTENT
+waila.settings.isEnabled.label=Enable Overlay
+waila.settings.displayPosition.label=Overlay Position
+waila.settings.displayPositionWhenSneaking.label=Position While Sneaking
+waila.settings.displayPositionWhenSneaking.description=Override the overlay anchor when you are sneaking.
+waila.settings.blockStatesVisibility.label=Block States
+waila.settings.effectiveToolVisibility.label=Effective Tool
+waila.settings.containerInventoryVisibility.label=Container Inventory §g(Experimental)§r
+waila.settings.containerInventoryVisibility.description=Displays contents of containers in the overlay. May behave unexpectedly.
+waila.settings.entityTagsVisibility.label=Entity Tags
+waila.settings.entityHealthVisibility.label=Entity Health
+waila.settings.alwaysDisplayEntityIntHealth.label=Always Show Integer Health
+waila.settings.alwaysDisplayEntityIntHealth.description=Displays entity health as an integer value instead.
+waila.settings.entityEffectsVisibility.label=Entity Effects
+waila.settings.packAuthorVisibility.label=Pack Author
+waila.settings.displayPosition.option.unchanged=No Change
+waila.settings.displayPosition.option.top_left=Top Left
+waila.settings.displayPosition.option.top_middle=Top Middle
+waila.settings.displayPosition.option.top_right=Top Right
+waila.settings.displayPosition.option.left_middle=Left Middle
+waila.settings.displayPosition.option.center=Center
+waila.settings.displayPosition.option.right_middle=Right Middle
+waila.settings.displayPosition.option.bottom_left=Bottom Left
+waila.settings.displayPosition.option.bottom_middle=Bottom Middle
+waila.settings.displayPosition.option.bottom_right=Bottom Right
+waila.settings.whenToShow.option.always=Always
+waila.settings.whenToShow.option.when_not_sneaking=Only When Not Sneaking
+waila.settings.whenToShow.option.when_sneaking=Only When Sneaking
+waila.settings.whenToShow.option.never=Never
+waila.settings.experimental.containerInventory.title=Enable Container Inventory Preview?
+waila.settings.experimental.containerInventory.body=Showing container contents may temporarily move items into placeholder slots and can behave unexpectedly. Continue?
+waila.settings.experimental.confirm=Enable Anyway
+waila.settings.experimental.cancel=Go Back
+waila.settings.feedback.updatedSelf=Updated your WAILA settings.
+waila.settings.feedback.updatedByOther=Your WAILA settings were updated by %s.
+waila.settings.feedback.updatedOther=Updated %s's WAILA settings.
+
+## =============================================================================
+## BLOCKS, ITEMS & ENTITIES
+## =============================================================================
+tile.bs:fence.name=Fence
+tile.bs:plant_sensor.name=Test
+tile.bs:table_decoration.name=Table Decoration
+tile.bs:corrupted_dimension_portal.name=Corrupted Dimension Portal
+
+## Palm Tree Set
+item.bs:palm_log=Palm Log
+item.bs:palm_log_fence=Palm Log Fence
+item.bs:palm_log_slab=Palm Log Slab
+item.bs:palm_log_stair=Palm Log Stair
+item.bs:palm_planks=Palm Planks
+item.bs:palm_planks_fence=Palm Planks Fence
+item.bs:palm_planks_slab=Palm Planks Slab
+item.bs:palm_planks_stair=Palm Planks Stair
+item.bs:stripped_palm_log=Stripped Palm Log
+item.bs:stripped_palm_log_stair=Stripped Palm Log Stair
+item.bs:stripped_palm_log_fence=Stripped Palm Log Fence
+item.bs:stripped_palm_log_slab=Stripped Palm Log Slab
+tile.bs:dry_palm_leaves.name=Dry Palm Leaves
+tile.bs:palm_leaves.name=Palm Leaves
+tile.bs:palm_log.name=Palm Log
+tile.bs:palm_log_fence.name=Palm Log Fence
+tile.bs:palm_log_slab.name=Palm Log Slab
+tile.bs:palm_log_stair.name=Palm Log Stair
+tile.bs:palm_trunk_stair.name=Palm Trunk Stairs
+tile.bs:palm_stripped_log_fence.name=Palm Stripped Log Fence
+tile.bs:palm_planks_fence.name=Palm Planks Fence
+tile.bs:palm_planks.name=Palm Planks
+tile.bs:palm_planks_slab.name=Palm Planks Slab
+tile.bs:palm_planks_stair.name=Palm Planks Stair
+tile.bs:stripped_palm_log_fence.name=Stripped Palm Log Fence
+tile.bs:stripped_palm_log.name=Stripped Palm Log
+tile.bs:stripped_palm_log_stair.name=Stripped Palm Log Stair
+tile.bs:stripped_palm_log_slab.name=Stripped Palm Log Slab
+
+## Miscellaneous Items & Entities
+item.bs:games=Games
+item.bs:dirt_shovel=Dirt Shovel
+item.bs:graze_the_roof=Graze The Roof
+item.bs:bach_ar_luo=Bach Ar Luo
+
+item.spawn_egg.entity.bs:bouldering_zombie.name=Bouldering Zombie Spawn Egg
+entity.bs:bouldering_zombie.name=Bouldering Zombie
+item.spawn_egg.entity.bs:duck.name=Duck Spawn Egg
+entity.bs:duck.name=Duck
+
+## Environment & Materials
+bs.dirt=Dirt
+bs.stone=Stone
+bs.grass=Grass
+bs.end_stone=End Stone
+bs.obsidian=Obsidian
+bs.water=Water
+bs.void=Void

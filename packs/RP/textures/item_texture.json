@@ -1,0 +1,21 @@
+{
+	"resource_pack_name": "World game beta",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"profile": {
+			"textures": "textures/items/ui/profile"
+		},
+		"games": {
+			"textures": "textures/items/ui/games"
+		},
+		"duck_egg": {
+			"textures": "textures/items/spawn_eggs/duck/1000151562"
+		},
+		"graze_the_roof": {
+			"textures": "textures/items/records/graze_the_roof/graze_the_roof"
+		},
+		"bach_ar_luo": {
+			"textures": "textures/items/records/bach_ar_luo/bach_ar_luo"
+		}
+	}
+}

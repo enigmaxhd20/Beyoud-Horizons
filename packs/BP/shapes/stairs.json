@@ -1,0 +1,12 @@
+{
+  "format_version": "1.26.0",
+    "minecraft:voxel_shape": {
+      "description": { "identifier": "bs:stairs" },
+      "shape": {
+        "boxes": [
+         { "min": [0,0,0], "max": [16,8,16] },
+         { "min": [0,8,8], "max": [16,16,16] }
+      ]
+    }
+  }
+}

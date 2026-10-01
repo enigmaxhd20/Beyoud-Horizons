@@ -1,0 +1,19 @@
+{
+	 "$schema": "https://raw.githubusercontent.com/Blockception/Minecraft-bedrock-json-schemas/main/behavior/items/items.json",
+	"format_version": "1.21.110",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bs:games",
+			"menu_category": {
+				"category": "items",
+				"group": "bs:itemGroup.ui"
+			}
+		},
+		"components": {
+			"minecraft:icon": "games",
+			"minecraft:allow_off_hand": true,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:max_stack_size": 1
+		}
+	}
+}

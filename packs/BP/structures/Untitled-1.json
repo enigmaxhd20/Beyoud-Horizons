@@ -1,0 +1,539 @@
+{
+    "type": "compound",
+    "name": "",
+    "value": {
+        "format_version": {
+            "type": "int",
+            "value": 1
+        },
+        "size": {
+            "type": "list",
+            "value": {
+                "type": "int",
+                "value": [
+                    4,
+                    3,
+                    3
+                ]
+            }
+        },
+        "structure": {
+            "type": "compound",
+            "value": {
+                "block_indices": {
+                    "type": "list",
+                    "value": {
+                        "type": "list",
+                        "value": [
+                            {
+                                "type": "int",
+                                "value": [
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    1,
+                                    0,
+                                    2,
+                                    1,
+                                    2,
+                                    0,
+                                    0,
+                                    0,
+                                    3,
+                                    1,
+                                    3,
+                                    1,
+                                    1,
+                                    1,
+                                    0,
+                                    0,
+                                    0,
+                                    4,
+                                    5,
+                                    4,
+                                    1,
+                                    1,
+                                    1,
+                                    0,
+                                    0,
+                                    0,
+                                    6,
+                                    7,
+                                    8,
+                                    1,
+                                    1,
+                                    1
+                                ]
+                            },
+                            {
+                                "type": "int",
+                                "value": [
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1,
+                                    -1
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "entities": {
+                    "type": "list",
+                    "value": {
+                        "type": "compound",
+                        "value": [
+                            {
+                                "Chested": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "Color": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "Color2": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "FallDistance": {
+                                    "type": "float",
+                                    "value": 0
+                                },
+                                "Fire": {
+                                    "type": "short",
+                                    "value": 0
+                                },
+                                "Invulnerable": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsAngry": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsAutonomous": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsBaby": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsEating": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsGliding": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsGlobal": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsIllagerCaptain": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsOrphaned": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsOutOfControl": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsRoaring": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsScared": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsStunned": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsSwimming": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsTamed": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "IsTrusting": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "LastDimensionId": {
+                                    "type": "int",
+                                    "value": 0
+                                },
+                                "LootDropped": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "MarkVariant": {
+                                    "type": "int",
+                                    "value": 0
+                                },
+                                "Motion": {
+                                    "type": "list",
+                                    "value": {
+                                        "type": "float",
+                                        "value": [
+                                            0,
+                                            0,
+                                            0
+                                        ]
+                                    }
+                                },
+                                "OnGround": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "OwnerNew": {
+                                    "type": "long",
+                                    "value": [
+                                        -1,
+                                        -1
+                                    ]
+                                },
+                                "PortalCooldown": {
+                                    "type": "int",
+                                    "value": 0
+                                },
+                                "Pos": {
+                                    "type": "list",
+                                    "value": {
+                                        "type": "float",
+                                        "value": [
+                                            278.4938659667969,
+                                            6.5,
+                                            -460.5
+                                        ]
+                                    }
+                                },
+                                "Rotation": {
+                                    "type": "list",
+                                    "value": {
+                                        "type": "float",
+                                        "value": [
+                                            0,
+                                            0
+                                        ]
+                                    }
+                                },
+                                "Saddled": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "Sheared": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "ShowBottom": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "Sitting": {
+                                    "type": "byte",
+                                    "value": 0
+                                },
+                                "SkinID": {
+                                    "type": "int",
+                                    "value": 0
+                                },
+                                "Strength": {
+                                    "type": "int",
+                                    "value": 0
+                                },
+                                "StrengthMax": {
+                                    "type": "int",
+                                    "value": 0
+                                },
+                                "Tags": {
+                                    "type": "list",
+                                    "value": {
+                                        "type": "end",
+                                        "value": []
+                                    }
+                                },
+                                "UniqueID": {
+                                    "type": "long",
+                                    "value": [
+                                        -30,
+                                        148
+                                    ]
+                                },
+                                "Variant": {
+                                    "type": "int",
+                                    "value": 0
+                                },
+                                "definitions": {
+                                    "type": "list",
+                                    "value": {
+                                        "type": "string",
+                                        "value": [
+                                            "+minecraft:minecart"
+                                        ]
+                                    }
+                                },
+                                "identifier": {
+                                    "type": "string",
+                                    "value": "minecraft:minecart"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "palette": {
+                    "type": "compound",
+                    "value": {
+                        "default": {
+                            "type": "compound",
+                            "value": {
+                                "block_palette": {
+                                    "type": "list",
+                                    "value": {
+                                        "type": "compound",
+                                        "value": [
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:planks"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {
+                                                        "wood_type": {
+                                                            "type": "string",
+                                                            "value": "birch"
+                                                        }
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            },
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:air"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {}
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            },
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:stone_button"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {
+                                                        "button_pressed_bit": {
+                                                            "type": "byte",
+                                                            "value": 0
+                                                        },
+                                                        "facing_direction": {
+                                                            "type": "int",
+                                                            "value": 1
+                                                        }
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            },
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:golden_rail"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {
+                                                        "rail_data_bit": {
+                                                            "type": "byte",
+                                                            "value": 0
+                                                        },
+                                                        "rail_direction": {
+                                                            "type": "int",
+                                                            "value": 1
+                                                        }
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            },
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:rail"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {
+                                                        "rail_direction": {
+                                                            "type": "int",
+                                                            "value": 1
+                                                        }
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            },
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:redstone_torch"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {
+                                                        "torch_facing_direction": {
+                                                            "type": "string",
+                                                            "value": "top"
+                                                        }
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            },
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:rail"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {
+                                                        "rail_direction": {
+                                                            "type": "int",
+                                                            "value": 7
+                                                        }
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            },
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:golden_rail"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {
+                                                        "rail_data_bit": {
+                                                            "type": "byte",
+                                                            "value": 1
+                                                        },
+                                                        "rail_direction": {
+                                                            "type": "int",
+                                                            "value": 0
+                                                        }
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            },
+                                            {
+                                                "name": {
+                                                    "type": "string",
+                                                    "value": "minecraft:rail"
+                                                },
+                                                "states": {
+                                                    "type": "compound",
+                                                    "value": {
+                                                        "rail_direction": {
+                                                            "type": "int",
+                                                            "value": 8
+                                                        }
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "int",
+                                                    "value": 17825808
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "block_position_data": {
+                                    "type": "compound",
+                                    "value": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "structure_world_origin": {
+            "type": "list",
+            "value": {
+                "type": "int",
+                "value": [
+                    277,
+                    5,
+                    -461
+                ]
+            }
+        }
+    }
+}

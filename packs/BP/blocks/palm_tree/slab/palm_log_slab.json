@@ -1,0 +1,121 @@
+{
+	"format_version": "1.26.30",
+	"minecraft:block": {
+		"description": {
+			"identifier": "bs:palm_log_slab",
+			"menu_category": {
+				"category": "construction",
+				"group": "minecraft:itemGroup.name.slab"
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:vertical_half"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.2
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 30
+			},
+			"minecraft:flammable": {
+				"destroy_chance_modifier": 20,
+				"catch_chance_modifier": 5
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.bs.slab_slim",
+				"bone_visibility": {
+					"top": "q.block_state('minecraft:vertical_half') == 'top'",
+					"bottom": "q.block_state('minecraft:vertical_half') == 'bottom'"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "bs_palm_log_slab",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:light_dampening": 6,
+			"minecraft:map_color": "#7d7d7d",
+			"minecraft:tags": [
+				"minecraft:is_axe_item_destructible"
+			],
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"liquid_type": "water",
+						"can_contain_liquid": true,
+						"on_liquid_touches": "blocking"
+					}
+				]
+			},
+			"minecraft:connection_rule": {
+				"accepts_connections_from": "none"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							8,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							8,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					}
+				}
+			}
+		]
+	}
+}

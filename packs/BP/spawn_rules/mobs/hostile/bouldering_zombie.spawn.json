@@ -1,0 +1,50 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:spawn_rules": {
+		"description": {
+			"identifier": "bs:bouldering_zombie",
+			"population_control": "monster"
+		},
+		"conditions": [
+			{
+				"minecraft:spawns_on_surface": {},
+				"minecraft:spawns_underground": {},
+				"minecraft:brightness_filter": {
+					"max": 3,
+					"min": 0,
+					"adjust_for_weather": true
+				},
+				"minecraft:difficulty_filter": {
+					"max": "hard",
+					"min": "normal"
+				},
+				"minecraft:weight": {
+					"default": 50
+				},
+				"minecraft:biome_filter": [
+					//			{
+					//			"test": "has_biome_tag",
+					//		"operator": "==",
+					//	"value": "overworld"
+					//	}
+					{
+						"all_of": [
+							{
+								"test": "has_biome_tag",
+								"value": "monster"
+							},
+							{
+								"test": "has_biome_tag",
+								"value": "desert"
+							}
+						]
+					}
+				],
+				"minecraft:herd": {
+					"max_size": 2,
+					"min_size": 2
+				}
+			}
+		]
+	}
+}

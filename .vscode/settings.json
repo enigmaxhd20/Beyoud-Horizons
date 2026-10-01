@@ -1,0 +1,88 @@
+{
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.associations": {
+    "*.json": "jsonc",
+    "**/*.json": "jsonc",
+    "*.jsonet": "jsonc",
+    "*.mcstructure": "json",
+    "*.mcfunction": "mcfunction",
+    "**/*.mcfunction": "mcfunction",
+    "*.lang": "properties",
+    "**/*.lang": "properties",
+    "*.unknown": "plaintext",
+    "*.mcmeta": "jsonc",
+    "**/*.mcmeta": "jsonc",
+    "**/textures/**/*.png": "image",
+    "**/textures/**/*.jpg": "image",
+    "**/textures/**/*.jpeg": "image",
+    "**/textures/**/*.webp": "image",
+    "**/textures/**/*.gif": "image"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnType": true,
+  "editor.quickSuggestions": {
+    "strings": true,
+    "comments": true,
+    "other": true
+  },
+  "json.schemaDownload.enable": true,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "RP/manifest.json"
+      ],
+      "url": "https://bedrock-studio.github.io/bedrock-json-schemas/manifest.json"
+    },
+    {
+      "fileMatch": [
+        "RP/*.animation_controllers.json"
+      ],
+      "url": "https://bedrock-studio.github.io/bedrock-json-schemas/animation_controller.json"
+    },
+    {
+      "fileMatch": [
+        "RP/*.animation.json"
+      ],
+      "url": "https://bedrock-studio.github.io/bedrock-json-schemas/animation.json"
+    },
+    {
+      "fileMatch": [
+        "RP/*.entity.json"
+      ],
+      "url": "https://bedrock-studio.github.io/bedrock-json-schemas/actor_resource_definition.json"
+    },
+    {
+      "fileMatch": [
+        "**/attachables/**/*.json"
+      ],
+      "url": "./attachables.schema.json"
+    },
+    {
+      "fileMatch": [
+        "RP/*.render_controllers.json"
+      ],
+      "url": "https://bedrock-studio.github.io/bedrock-json-schemas/render_controller.json"
+    },
+    {
+      "fileMatch": [
+        "**/models/**/*.json"
+      ],
+      "url": "./model_entity.schema.json"
+    }
+  ],
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true
+}

@@ -1,0 +1,10 @@
+{
+  "diagnostic.severity.resourcepack.sound.missing": "warning",
+  "diagnostic.severity.resourcepack.sounds.missing": "warning",
+  "diagnostic.severity.resourcepack.texture.missing": "warning",
+  "diagnostic.severity.resourcepack.textures.missing": "warning",
+  "diagnostic.severity.behaviorpack.entity.component.missing": "warning",
+  "diagnostic.severity.behaviorpack.items.components.texture_not_found": "warning",
+  "diagnostic.severity.behaviorpack.items.missing": "warning",
+  "diagnostic.severity.behaviorpack.trading.missing": "warning"
+}

@@ -1,0 +1,14 @@
+{
+  "ui_defs": [
+    "ui/forms/main.json",
+    "ui/server_form.json",
+    "ui/game/screen/loading.json",
+    "ui/game/server/games.json",
+    "ui/r4isen1920/waila/common.json",
+    "ui/r4isen1920/waila/entity.json",
+    "ui/r4isen1920/waila/main.json",
+    "ui/r4isen1920/waila/tile.json",
+    "ui/hud/biome_find.json",
+    "ui/hud/test.json"
+  ]
+}

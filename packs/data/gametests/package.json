@@ -1,0 +1,22 @@
+{
+  "name": "example-gametest",
+  "version": "0.0.1",
+  "description": "Example of a GameTest module",
+  "main": "main.js",
+  "scripts": {
+    "mc:update": "node scripts/update-preview.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bedrock-oss/add-on-registry": "^1.0.30",
+    "@bedrock-oss/bedrock-boost": "^2.2.0",
+    "@bedrock-oss/stylish": "^0.0.5",
+    "@minecraft/server": "2.12.0-beta.1.26.60-preview.29",
+    "@minecraft/server-gametest": "1.0.0-beta.1.26.60-preview.29",
+    "@minecraft/server-ui": "2.4.0-beta.1.26.60-preview.29"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

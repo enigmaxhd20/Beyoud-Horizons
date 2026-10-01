@@ -1,0 +1,6 @@
+import "./death"
+import "./statistics"
+import "./spawn/copiler"
+import "./friends/copiler"
+import "./default/copiler"
+import "./friends/copiler"

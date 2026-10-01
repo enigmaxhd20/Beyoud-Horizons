@@ -1,0 +1,132 @@
+{
+  "frames": [
+    {
+      "filename": "graze_the_roof 0.gif",
+      "frame": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 1000
+    },
+    {
+      "filename": "graze_the_roof 1.gif",
+      "frame": { "x": 0, "y": 16, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 2.gif",
+      "frame": { "x": 0, "y": 32, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 3.gif",
+      "frame": { "x": 0, "y": 48, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 4.gif",
+      "frame": { "x": 0, "y": 64, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 5.gif",
+      "frame": { "x": 0, "y": 80, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 6.gif",
+      "frame": { "x": 0, "y": 96, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 7.gif",
+      "frame": { "x": 0, "y": 112, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 8.gif",
+      "frame": { "x": 0, "y": 128, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 9.gif",
+      "frame": { "x": 0, "y": 144, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 10.gif",
+      "frame": { "x": 0, "y": 160, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 100
+    },
+    {
+      "filename": "graze_the_roof 11.gif",
+      "frame": { "x": 0, "y": 176, "w": 16, "h": 16 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+      "sourceSize": { "w": 16, "h": 16 },
+      "duration": 1000
+    }
+  ],
+  "meta": {
+    "app": "https://www.aseprite.org/",
+    "version": "1.2.40-x64",
+    "image": "graze_the_roof.png",
+    "format": "I8",
+    "size": {
+      "w": 16,
+      "h": 192
+    },
+    "scale": "1",
+    "frameTags": [],
+    "layers": [
+      {
+        "name": "Layer",
+        "opacity": 255,
+        "blendMode": "normal"
+      }
+    ],
+    "slices": []
+  }
+}

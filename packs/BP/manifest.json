@@ -1,0 +1,48 @@
+{
+  "format_version": 3,
+  "header": {
+    "name": "pack.name",
+    "description": "pack.description",
+    "min_engine_version": "1.26.30",
+    "uuid": "61c8a592-eaa9-4a5a-b2af-19ee154acc26",
+    "version": "0.0.5"
+  },
+  "metadata": {
+    "authors": ["Enigmax"],
+    "license": "creatives commons",
+    "product_type": "addon",
+    "url": "https://flygames.flyerserver.uk/hub",
+    "generated_with": {
+      "bridge": ["2.7.54"],
+      "dash": ["0.11.7"]
+    }
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "81eb8a2d-bc56-4966-9711-cb8e885dfcec",
+      "version": "1.0.0"
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "4f7c85f8-855c-4a94-b379-3a28efe52a01",
+      "entry": "scripts/main.js",
+      "version": "1.0.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "dd4ae9c8-0499-4197-ace9-0b986c95f7f3",
+      "version": "0.0.5"
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.12.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.4.0-beta"
+    }
+  ]
+}

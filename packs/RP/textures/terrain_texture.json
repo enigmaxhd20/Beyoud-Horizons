@@ -1,0 +1,38 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "World game beta",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"bs_table_decoration": {
+			"textures": "textures/blocks/table/table_decoration"
+		},
+		"bs_palm_log_stair": {
+			"textures": "textures/blocks/wood/palm_tree/palm_log_stair"
+		},
+		"bs_palm_log_fence": {
+			"textures": "textures/blocks/wood/palm_tree/palm_log_fence"
+		},
+		"bs_palm_log_slab": {
+			"textures": "textures/blocks/wood/palm_tree/palm_log_slab"
+		},
+		"bs_palm_log_fence_b": {
+			"textures": "textures/blocks/wood/palm_tree/palm_log_fence"
+		},
+		"bs_palm_log": {
+			"textures": "textures/blocks/wood/palm_tree/palm_log"
+		},
+		"bs_crop_test_0": {
+			"textures": "textures/blocks/crops/test/beetroots_stage_0"
+		},
+		"bs_crop_test_1": {
+			"textures": "textures/blocks/crops/test/beetroots_stage_1"
+		},
+		"bs_crop_test_2": {
+			"textures": "textures/blocks/crops/test/beetroots_stage_2"
+		},
+		"bs_crop_test_3": {
+			"textures": "textures/blocks/crops/test/beetroots_stage_3"
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"format_version": [
+		1,
+		1,
+		0
+	],
+	"bstable_decoration": {
+		"sound": "stone"
+	},
+	"bscorrupted_dimension_portal": {
+		"sound": "stone"
+	},
+	"bs:test": {
+		"sound": "wood"
+	},
+	"bs:palm_log": {
+		"sound": "wood"
+	},
+	"bs:stripped_palm_log": {
+		"sound": "wood"
+	},
+	"bs:palm_planks": {
+		"sound": "wood"
+	},
+	"bs:palm_log_fence": {
+		"sound": "wood"
+	},
+	"bs:palm_leaves": {
+		"sound": "cherry_leaves"
+	},
+	"bs:dry_palm_leaves": {
+		"sound": "azalea_leaves"
+	},
+	"bs:stripped_palm_log_fence": {
+		"sound": "wood"
+	},
+	"bs:plant_sensor": {
+		"sound": "sweet_berry_bush"
+	}
+}

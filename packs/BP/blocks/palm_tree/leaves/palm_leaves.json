@@ -1,0 +1,101 @@
+{
+	"format_version": "1.26.30",
+	"minecraft:block": {
+		"description": {
+			"identifier": "bs:palm_leaves",
+			"menu_category": {
+				"category": "nature",
+				"group": "minecraft:itemGroup.name.leaves"
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:facing_direction"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:chest_obstruction": {
+				"obstruction_rule": "always"
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.18,
+				"item_specific_speeds": [
+					{
+						"item": "minecraft:shears",
+						"destroy_speed": 0
+					}
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 15
+			},
+			"minecraft:flammable": {
+				"destroy_chance_modifier": 20,
+				"catch_chance_modifier": 6
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.bs.block_slim",
+				"uv_lock": true,
+				"culling": "bs:leaves",
+				"culling_layer": "minecraft:culling_layer.leaves"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "bs_palm_log",
+					"render_method": "alpha_test_to_opaque",
+					"tint_method": "default_foliage"
+				}
+			},
+			"minecraft:light_dampening": 10,
+			"minecraft:map_color": "#5f4a2b",
+			"minecraft:tags": [
+				"minecraft:is_shears_item_destructible",
+				"minecraft:is_hoe_item_destructible"
+			],
+			// mc-disable-next-line behaviorpack.lootTables.missing
+			"minecraft:loot": "loot_tables/blocks/palm_tree/leaves"
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'up' || q.block_state('minecraft:facing_direction') == 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'east' || q.block_state('minecraft:facing_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							90
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'north' || q.block_state('minecraft:facing_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

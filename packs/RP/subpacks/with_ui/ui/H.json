@@ -1,0 +1,129 @@
+{
+    ///Enigmax
+    "main_screen_content": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "server_form_factory": {
+                    "type": "factory",
+                    "control_ids": {
+                        "long_form": "@server_form.long_form",
+                        "custom_form": "@server_form.custom_form"
+                    }
+                }
+            }
+        ]
+    },
+    "long_form": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "$info_prefix": "game.info:",
+        "$gui_prefix": "game.gui:",
+        "$leaderboard_prefix": "game.leaderboard:",
+        "$rspin_prefix": "game.rspin:",
+        "$maps_prefix": "game.maps:",
+        "$action_prefix": "game.action:",
+        "$shop_prefix": "game.shop:",
+        "$profile_prefix": "game.profile",
+        "controls": [
+            {
+                "long_form@common_dialogs.main_panel_no_buttons": {
+                    "$title_panel": "common_dialogs.standard_title_label",
+                    "$title_size": [
+                        "100% - 14px",
+                        10
+                    ],
+                    "size": [
+                        225,
+                        255
+                    ],
+                    "$text_name": "#title_text",
+                    "$title_text_binding_type": "none",
+                    "$child_control": "server_form.long_form_panel",
+                    "layer": 2,
+                    "bindings": [
+                        {
+                            "binding_name": "#title_text"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#title_text - $info_prefix - $maps_prefix - $shop_prefix - $leaderboard_prefix - $action_prefix - $rspin_prefix - $quest_prefix - $profile_prefix) = #title_text)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "info@game_info.root_panel": {}
+            },
+            {
+                "gui@stk_game.root_panel": {}
+            },
+            {
+                "leaderboard@stk_leaderboard.root_panel": {}
+            },
+            {
+                "rspin@game_rspin.root_panel": {}
+            },
+            {
+                "map@game_map.root_panel": {}
+            },
+            {
+                "action@map_action.root_panel": {}
+            },
+            {
+                "shop@game_shop.root_panel": {}
+            },
+            {
+                "profile@game_profile.root_panel": {}
+            }
+        ]
+    },
+    "custom_form": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "$modal_prefix": "game.modal:",
+        "controls": [
+            {
+                "custom_form@common_dialogs.main_panel_no_buttons": {
+                    "$title_panel": "common_dialogs.standard_title_label",
+                    "$title_size": [
+                        "100% - 14px",
+                        10
+                    ],
+                    "size": [
+                        225,
+                        200
+                    ],
+                    "$text_name": "#title_text",
+                    "$title_text_binding_type": "none",
+                    "$child_control": "server_form.custom_form_panel",
+                    "layer": 2,
+                    "bindings": [
+                        {
+                            "binding_name": "#title_text"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#title_text - $modal_prefix) = #title_text)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "modal@game_modal.root_panel": {}
+            }
+        ]
+    }
+}

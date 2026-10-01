@@ -1,0 +1,57 @@
+{
+  "format_version": "1.26.30",
+  "minecraft:biome": {
+    "description": {
+      "identifier": "bs:island"
+    },
+    "components": {
+      
+      "minecraft:climate": {
+        "downfall": 0.4,
+        "temperature": 0.8,
+        "snow_accumulation": [
+          0,
+          0.125
+        ]
+    
+       },
+       "minecraft:overworld_height": {},
+      "minecraft:surface_builder": {
+        "builder": {
+          "type": "minecraft:overworld",
+          "sea_floor_depth": 5,
+          "sea_floor_material": "minecraft:sand",
+          "sea_material": "minecraft:water",
+          "foundation_material": "minecraft:stone",
+          "mid_material": "minecraft:sandstone",
+          "top_material": "minecraft:sand"
+        }
+      },
+      "minecraft:tags": {
+        "tags": [
+          "overworld",
+          "island",
+          "bee_habitat",
+          "has_structure_trail_ruins",
+          "animal",
+          "has_structure_sland"
+          ]
+      },
+      "minecraft:replace_biomes": {
+        "replacements": [
+          {
+            "amount": 0.1,
+            "noise_frequency_scale": 0.8,
+            "dimension": "minecraft:overworld",
+            "targets": [
+              "minecraft:deep_ocean",
+              "minecraft:deep_cold_ocean",
+              "minecraft:deep_warm_ocean",
+              "minecraft:deep_lukewarm_ocean"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

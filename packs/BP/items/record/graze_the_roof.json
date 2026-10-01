@@ -1,0 +1,28 @@
+{
+   "$schema": "https://raw.githubusercontent.com/Blockception/Minecraft-bedrock-json-schemas/main/behavior/items/items.json",
+  "format_version": "1.21.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "bs:graze_the_roof",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.record"
+      }
+    },
+    "components": {
+      "minecraft:stacked_by_data": true,
+      "minecraft:icon": "graze_the_roof",
+      "minecraft:max_stack_size": 1,
+      "minecraft:record": {
+        "comparator_signal": 7,
+        "duration": 210
+      },
+      "minecraft:tags": {
+        "tags": [
+          "bs:records",
+          "minecraft:music_disc"
+        ]
+      }
+    }
+  }
+}

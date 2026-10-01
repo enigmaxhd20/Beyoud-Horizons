@@ -1,0 +1,827 @@
+{
+  "namespace": "lyy42znamespace",
+  "custom_button": {
+    "$default_button_background_texture|default": "textures/ui/glass_pane",
+    "$hover_button_background_texture|default": "textures/ui/glass_pane_hover",
+    "$pressed_button_background_texture|default": "textures/ui/button_black_hover",
+    "$button_size|default": [
+      64,
+      64
+    ],
+    "$button_offset|default": [
+      0,
+      0
+    ],
+    "$icon_size|default": [
+      45,
+      45
+    ],
+    "$icon_offset|default": [
+      0,
+      -5
+    ],
+    "$text_offset|default": [
+      0,
+      -8
+    ],
+    "$font_size|default": 1,
+    "$font_type|default": "MinecraftRegular",
+    "$shadow|default": false,
+    "$text_alignment|default": "left",
+    "$show_hover_text|default": true,
+    "type": "panel",
+    "size": "$button_size",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "panel_name": {
+          "type": "panel",
+          "size": "$button_size",
+          "offset": "$button_offset",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "image",
+              "resolve_sibling_scope": true,
+              "source_property_name": "(not (#texture = ''))",
+              "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "image": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "type": "image",
+                "layer": 200,
+                "size": "$icon_size",
+                "offset": "$icon_offset",
+                "bindings": [
+                  {
+                    "binding_name": "#form_button_texture",
+                    "binding_name_override": "#texture",
+                    "binding_type": "collection",
+                    "binding_collection_name": "form_buttons"
+                  },
+                  {
+                    "binding_name": "#form_button_texture_file_system",
+                    "binding_name_override": "#texture_file_system",
+                    "binding_type": "collection",
+                    "binding_collection_name": "form_buttons"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+                    "target_property_name": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "text": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "type": "label",
+                "text": "#form_button_text",
+                "font_type": "$font_type",
+                "font_scale_factor": "$font_size",
+                "layer": 5,
+                "text_alignment": "$text_alignment",
+                "shadow": "$shadow",
+                "offset": "$text_offset",
+                "bindings": [
+                  {
+                    "binding_name": "#form_button_text",
+                    "binding_type": "collection",
+                    "binding_collection_name": "form_buttons"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "form_button@common_buttons.light_content_button": {
+          "$default_button_texture": "$default_button_background_texture",
+          "$hover_button_texture": "$hover_button_background_texture",
+          "$pressed_button_texture": "$pressed_button_background_texture",
+          "$default_state_border_visible": false,
+          "$hover_state_border_visible": false,
+          "$pressed_state_border_visible": false,
+          "$pressed_button_name": "button.form_button_click",
+          "offset": "$button_offset",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": "$button_size",
+          "$button_text": "#null",
+          "$button_text_binding_type": "collection",
+          "$button_text_grid_collection_name": "form_buttons",
+          "$button_text_max_size": [
+            "100%",
+            20
+          ],
+          "variables": [
+            {
+              "requires": "($show_hover_text)",
+              "$button_content": "default_namespace.hover_text_panel"
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "form_buttons"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not (#form_button_text = '') )",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "lyy42znamespace": {
+    "offset": [
+      -270.53999999999996,
+      -152.415
+    ],
+    "size": [
+      541.0799999999999,
+      304.83
+    ],
+    "layer": 0,
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": [],
+    "controls": [
+      {
+        "pgsbix12-panel": {
+          "offset": [
+            0,
+            0
+          ],
+          "size": [
+            541.0799999999999,
+            304.83
+          ],
+          "layer": 2,
+          "type": "panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "bindings": [],
+          "controls": [
+            {
+              "7kgzcsvn-collection_panel": {
+                "offset": [
+                  0,
+                  0
+                ],
+                "size": [
+                  541.0799999999999,
+                  304.83
+                ],
+                "layer": 6,
+                "type": "collection_panel",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "collection_name": "form_buttons",
+                "bindings": [],
+                "controls": [
+                  {
+                    "7qfhn12v-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$button_offset": [
+                        452.9556,
+                        272.42208
+                      ],
+                      "$button_size": [
+                        81.72,
+                        33.839999999999996
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 0,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        81.72,
+                        33.839999999999996
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        12.959999999999999,
+                        4.76
+                      ],
+                      "$font_type": "MinecraftTen",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "uhqo5b4x-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        355.7646,
+                        272.42208
+                      ],
+                      "$button_size": [
+                        93.96,
+                        29.52
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 1,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        93.96,
+                        29.52
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        12.959999999999999,
+                        1.1600000000000001
+                      ],
+                      "$font_type": "MinecraftTen",
+                      "$shadow": true,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "1mwey3n0-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        4.68,
+                        272.42208
+                      ],
+                      "$button_size": [
+                        84.6,
+                        29.52
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 2,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        84.6,
+                        29.52
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        6.464124,
+                        10.072664
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "9okpz6v6-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        517.0356,
+                        4.94208
+                      ],
+                      "$button_size": [
+                        21.24,
+                        20.52
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 3,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        16.2,
+                        16.2
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        2.16,
+                        5.089543999999999
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "fm7rhfyn-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        7.199999999999999,
+                        5.3999999999999995
+                      ],
+                      "$button_size": [
+                        32.4,
+                        30.959999999999997
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 4,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        32.4,
+                        30.959999999999997
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        5.3841095999999995,
+                        6.184124
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "lfsr4jia-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        44.00208,
+                        5.659415999999999
+                      ],
+                      "$button_size": [
+                        97.92,
+                        26.64
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 5,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        97.92,
+                        26.64
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        10.784124,
+                        4.3841132
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "7w7wxk8w-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        485.7228,
+                        4.939416
+                      ],
+                      "$button_size": [
+                        23.4,
+                        20.88
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 6,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        23.4,
+                        20.88
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        3.3975,
+                        1.1600000000000001
+                      ],
+                      "$font_type": "MinecraftTen",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "5un7k6xz-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        5.76,
+                        140.89499999999998
+                      ],
+                      "$button_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 7,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        13.304124,
+                        4.376182399999999
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "xk8t5sqb-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        5.76,
+                        173.4246
+                      ],
+                      "$button_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 8,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        17.28,
+                        11.6
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "eowx0h4a-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        6.202044000000001,
+                        209.06207999999998
+                      ],
+                      "$button_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 9,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        10.028376,
+                        6.708247999999999
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "ifmsgn2b-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        512.28,
+                        173.41956
+                      ],
+                      "$button_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 10,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        8.989416,
+                        3.2988175999999996
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "vtu1tsbj-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        512.0064,
+                        205.10207999999997
+                      ],
+                      "$button_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 11,
+                      "$icon_offset": [
+                        3.08,
+                        2
+                      ],
+                      "$icon_size": [
+                        21.96,
+                        23.759999999999998
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        5.0241348,
+                        1.864124
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "r3k2a8ep-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        511.64639999999997,
+                        140.89499999999998
+                      ],
+                      "$button_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 12,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        23.759999999999998,
+                        23.759999999999998
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        1.0641348,
+                        6.184124
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "f3y0fk4r-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        101.60748,
+                        146.42603999999997
+                      ],
+                      "$button_size": [
+                        18,
+                        18
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 13,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        18,
+                        18
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        11.52,
+                        5.84
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  },
+                  {
+                    "1isb3aw1-button@lyy42znamespace.custom_button": {
+                      "$default_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$hover_button_background_texture": "textures/custom_ui/custom_bg_hover",
+                      "$pressed_button_background_texture": "textures/custom_ui/custom_bg",
+                      "$button_offset": [
+                        431.82,
+                        147.42
+                      ],
+                      "$button_size": [
+                        18,
+                        18
+                      ],
+                      "layer": 8,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "collection_index": 14,
+                      "$icon_offset": [
+                        2,
+                        2
+                      ],
+                      "$icon_size": [
+                        18,
+                        18
+                      ],
+                      "$font_size": 0.576,
+                      "$text_offset": [
+                        2.16,
+                        1.1600000000000001
+                      ],
+                      "$font_type": "MinecraftRegular",
+                      "$shadow": false,
+                      "$text_alignment": "left",
+                      "$show_hover_text": false,
+                      "bindings": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "uckpgc30-image": {
+                "offset": [
+                  0,
+                  0
+                ],
+                "size": [
+                  540.72,
+                  304.56
+                ],
+                "layer": 4,
+                "type": "image",
+                "texture": "textures/custom_ui/custom_bg",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "bindings": [],
+                "controls": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "6ojiigde-panel": {
+          "offset": [
+            193.06836,
+            56.04335999999999
+          ],
+          "size": [
+            155.66029541015624,
+            193.46029541015625
+          ],
+          "layer": 4,
+          "type": "panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "bindings": [],
+          "controls": []
+        }
+      }
+    ]
+  },
+  "config": {
+    "magicNumbers": {
+      "scrolling_panel_offsets": {
+        "scrolling_pane_right_offset": 2
+      },
+      "textEditor": {
+        "indentation": 4
+      },
+      "explorer": {
+        "folderIndentation": 10,
+        "nonFolderIndentation": 35,
+        "overallOffset": 15
+      },
+      "resizeHandleSize": 15,
+      "fontScalar": 1.6,
+      "fontOffsetX": 6,
+      "fontOffsetY": 6,
+      "UI_SCALAR": 0.36,
+      "buttonImageOffsetX": 2,
+      "buttonImageOffsetY": 2
+    }
+  }
+}
+/* Generated by JSON-UI Maker, do not edit or it cannot be imported back into the website.
+Made by smegma0393 (seb) on discord https://github.com/SebTheSigma/JSON-UI-Maker */

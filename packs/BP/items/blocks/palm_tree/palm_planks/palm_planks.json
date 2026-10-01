@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Blockception/Minecraft-bedrock-json-schemas/main/behavior/items/items.json",
+  "format_version": "1.26.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "bs:palm_planks",
+      "menu_category": {
+        "category": "construction",
+        "group": "minecraft:itemGroup.name.planks"
+      }
+    },
+    "components": {
+      "minecraft:fuel": {
+        "duration": 15
+      },
+      "minecraft:block_placer": {
+        "block": "bs:palm_planks",
+        "replace_block_item": true
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Blockception/Minecraft-bedrock-json-schemas/main/behavior/items/items.json",
+  "format_version": "1.26.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "bs:stripped_palm_log_slab",
+      "menu_category": {
+        "category": "construction",
+        "group": "minecraft:itemGroup.name.slab"
+      }
+    },
+    "components": {
+      "minecraft:fuel": {
+        "duration": 20
+      },
+      "minecraft:block_placer": {
+        "block": "bs:stripped_palm_log_slab",
+        "replace_block_item": true
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "namespace": "hud",
+  //
+  /* created by r4isen1920 | MIT License */
+  //---------------------------------------------------------------------------
+  // Vanilla Modifications
+  //--------------------------------------------------------------------------
+  /*
+  */
+  "hud_title_text": {
+    "modifications": [
+      {
+        "array_name": "bindings",
+        "operation": "insert_front",
+        "value": [
+          {
+            "binding_type": "global",
+            "binding_name": "#hud_title_text_string",
+            "binding_name_override": "#text"
+          }
+        ]
+      },
+      {
+        "array_name": "bindings",
+        "operation": "insert_back",
+        "value": [
+          {
+            "binding_type": "view",
+            "source_property_name": "(not ('%.6s' * #text = 'waila:') and not ('%.11s' * #text = 'biome_find:'))",
+            "target_property_name": "#visible"
+          }
+        ]
+      }
+    ]
+  },
+  "root_panel": {
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "hud_text_display@custom_biome_hud.biome_find_hud": {
+              /* "factory": {
+                "name": "hud_title_text_factory",
+                "control_ids": {
+                  "hud_title_text": ""
+                }
+              }
+           */
+            }
+          },
+          {
+            /* WAILA persistente: NAO usar factory aqui.
+               A hud_title_text_factory cria o controle quando o titulo aparece e o destroi
+               quando ele expira, o que zera o property_bag do waila_data_control.
+               Montado direto no root_panel, o centerer vive o tempo todo e o valor
+               guardado sobrevive a qualquer outro titulo. */
+            "waila@r4isen1920_waila_main.centerer": {}
+          }
+        ]
+      }
+    ]
+  }
+}

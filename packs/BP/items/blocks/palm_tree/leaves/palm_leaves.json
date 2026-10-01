@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Blockception/Minecraft-bedrock-json-schemas/main/behavior/items/items.json",
+  "format_version": "1.26.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "bs:palm_leaves",
+      "menu_category": {
+        "category": "nature",
+        "group": "minecraft:itemGroup.name.leaves"
+      }
+    },
+    "components": {
+      "minecraft:fuel": {
+        "duration": 6
+      },
+      "minecraft:block_placer": {
+        "block": "bs:palm_leaves",
+        "replace_block_item": true
+      }
+    }
+  }
+}

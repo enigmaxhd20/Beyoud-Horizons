@@ -1,0 +1,83 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.games.first_person_hold": {
+			"loop": true,
+			"bones": {
+				"Root_item": {
+					"rotation": [
+						-0.24818,
+						-30.97091,
+						-47.74453
+					],
+					"position": [
+						-1.55059,
+						16.07216,
+						2.52347
+					],
+					"scale": [
+						0.8,
+						1,
+						0.9
+					]
+				}
+			}
+		},
+		"animation.games.third_person_hold": {
+			"loop": true,
+			"bones": {
+				"Root_item": {
+					"rotation": [
+						0,
+						-90,
+						0
+					],
+					"position": [
+						0.5,
+						19,
+						-6
+					],
+					"scale": [
+						0.6,
+						0.8,
+						0.5
+					]
+				}
+			}
+		},
+		"animation.profile.first_person_hold": {
+			"loop": true,
+			"bones": {
+				"Root_item": {
+					"rotation": [
+						89.56311,
+						-61.09027,
+						121.34927
+					],
+					"position": [
+						5.89679,
+						6.58545,
+						11.19827
+					]
+				}
+			}
+		},
+		"animation.profile.third_person_hold": {
+			"loop": true,
+			"bones": {
+				"Root_item": {
+					"rotation": [
+						0,
+						0,
+						0
+					],
+					"position": [
+						0,
+						18.03528,
+						-4.1363
+					]
+				}
+			}
+		}
+	}
+}

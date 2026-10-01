@@ -1,0 +1,24 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.duck": {
+			"arrays": {
+				"textures": {
+					"Array.eyes": [
+						"Texture.default",
+						"Texture.blink"
+					]
+				}
+			},
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"Array.eyes[math.cos(query.life_time * 60.0) > 0.99 ? 1 : 0]"
+			]
+		}
+	}
+}

@@ -1,0 +1,1382 @@
+/* r4isen1920によって作成されました | MITライセンス */
+/* Binding version: text comes from the preserved title (data_control) at runtime */
+
+{
+	"namespace": "r4isen1920_waila_entity",
+	"status_effect_renderer@common.empty_panel": {
+		"$is_expanded|default": true,
+		"$data_a|default": "",
+		"$data_b|default": "",
+		"$data_c|default": false,
+		"$data_d|default": "('00000000' + '')",
+		"size": [
+			"100%c",
+			"100%c"
+		],
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "(not (('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p0'))",
+				"target_property_name": "#visible"
+			}
+		],
+		"variables": [
+			{
+				"requires": "$data_c",
+				"$color": "$c_color_format"
+			},
+			{
+				"requires": "(not $data_c)",
+				"$color": "$f_color_format"
+			}
+		],
+		"controls": [
+			{
+				"icon_and_label_expanded": {
+					"type": "stack_panel",
+					"orientation": "horizontal",
+					"size": [
+						"100%c",
+						"100%cm + 4px"
+					],
+					"ignored": "(not $is_expanded)",
+					"controls": [
+						{
+							"icon_panel@common.empty_panel": {
+								"size": [
+									"100%y",
+									"100%sm"
+								],
+								"controls": [
+									{
+										"icon@r4isen1920_waila_common.image": {
+											"$texture": "('textures/ui/' + $data_a + '_effect')",
+											"texture": "$texture",
+											"keep_ratio": true,
+											"size": [
+												"100% - 4px",
+												"100% - 4px"
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"padding@common.empty_panel": {
+								"size": [
+									2.5,
+									0
+								]
+							}
+						},
+						{
+							"label_panel": {
+								"type": "stack_panel",
+								"orientation": "vertical",
+								"size": [
+									"100%cm + 2px",
+									"100%c"
+								],
+								"controls": [
+									{
+										"waila_data@r4isen1920_waila_common.waila_data": {}
+									},
+									{
+										"name_and_amplifier": {
+											"type": "stack_panel",
+											"orientation": "horizontal",
+											"size": [
+												"100%c",
+												"100%cm"
+											],
+											"controls": [
+												{
+													"waila_data@r4isen1920_waila_common.waila_data": {}
+												},
+												{
+													"name@r4isen1920_waila_common.label": {
+														"text": "$data_b",
+														"font_scale_factor": 0.75,
+														"localize": true,
+														"color": "$color"
+													}
+												},
+												{
+													"padding@r4isen1920_waila_common.label": {
+														"text": " ",
+														"font_scale_factor": 0.75,
+														"color": "$color"
+													}
+												},
+												{
+													"amp_p2@r4isen1920_waila_common.label": {
+														"text": "II",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p2')",
+																"target_property_name": "#visible"
+															}
+														]
+													}
+												},
+												{
+													"amp_p3@r4isen1920_waila_common.label": {
+														"text": "III",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p3')",
+																"target_property_name": "#visible"
+															}
+														]
+													}
+												},
+												{
+													"amp_p4@r4isen1920_waila_common.label": {
+														"text": "IV",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p4')",
+																"target_property_name": "#visible"
+															}
+														]
+													}
+												},
+												{
+													"amp_p5@r4isen1920_waila_common.label": {
+														"text": "V",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p5')",
+																"target_property_name": "#visible"
+															}
+														]
+													}
+												},
+												{
+													"amp_p6@r4isen1920_waila_common.label": {
+														"text": "VI",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p6')",
+																"target_property_name": "#visible"
+															}
+														]
+													}
+												},
+												{
+													"amp_p7@r4isen1920_waila_common.label": {
+														"text": "VII",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p7')",
+																"target_property_name": "#visible"
+															}
+														]
+													}
+												},
+												{
+													"amp_p8@r4isen1920_waila_common.label": {
+														"text": "VIII",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p8')",
+																"target_property_name": "#visible"
+															}
+														]
+													}
+												},
+												{
+													"amp_p9@r4isen1920_waila_common.label": {
+														"text": "IX",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p9')",
+																"target_property_name": "#visible"
+															}
+														]
+													}
+												}
+											]
+										}
+									},
+									{
+										"duration@r4isen1920_waila_common.label": {
+											"text": "#text",
+											"font_scale_factor": 0.75,
+											"color": "$7_color_format",
+											"bindings": [
+												{
+													"binding_type": "view",
+													"source_control_name": "waila_data",
+													"resolve_sibling_scope": true,
+													"source_property_name": "(('%.9s' * ('§z' + $data_d)) - 'd')",
+													"target_property_name": "#text"
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			{
+				"icon_and_label_mini@common.empty_panel": {
+					"size": [
+						"100%cm",
+						"100%cm"
+					],
+					"ignored": "$is_expanded",
+					"controls": [
+						{
+							"icon_panel@common.empty_panel": {
+								"size": [
+									"100%c + 4px",
+									"100%c + 2px"
+								],
+								"controls": [
+									{
+										"icon@r4isen1920_waila_common.image": {
+											"$texture": "('textures/ui/' + $data_a + '_effect')",
+											"texture": "$texture",
+											"keep_ratio": true,
+											"size": [
+												10,
+												10
+											],
+											"controls": [
+												{
+													"waila_data@r4isen1920_waila_common.waila_data": {}
+												},
+												{
+													"amp_p2@r4isen1920_waila_common.label": {
+														"text": "II",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p2')",
+																"target_property_name": "#visible"
+															}
+														],
+														"anchor_from": "bottom_right",
+														"anchor_to": "bottom_right",
+														"offset": [
+															0,
+															1
+														]
+													}
+												},
+												{
+													"amp_p3@r4isen1920_waila_common.label": {
+														"text": "III",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p3')",
+																"target_property_name": "#visible"
+															}
+														],
+														"anchor_from": "bottom_right",
+														"anchor_to": "bottom_right",
+														"offset": [
+															0,
+															1
+														]
+													}
+												},
+												{
+													"amp_p4@r4isen1920_waila_common.label": {
+														"text": "IV",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p4')",
+																"target_property_name": "#visible"
+															}
+														],
+														"anchor_from": "bottom_right",
+														"anchor_to": "bottom_right",
+														"offset": [
+															0,
+															1
+														]
+													}
+												},
+												{
+													"amp_p5@r4isen1920_waila_common.label": {
+														"text": "V",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p5')",
+																"target_property_name": "#visible"
+															}
+														],
+														"anchor_from": "bottom_right",
+														"anchor_to": "bottom_right",
+														"offset": [
+															0,
+															1
+														]
+													}
+												},
+												{
+													"amp_p6@r4isen1920_waila_common.label": {
+														"text": "VI",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p6')",
+																"target_property_name": "#visible"
+															}
+														],
+														"anchor_from": "bottom_right",
+														"anchor_to": "bottom_right",
+														"offset": [
+															0,
+															1
+														]
+													}
+												},
+												{
+													"amp_p7@r4isen1920_waila_common.label": {
+														"text": "VII",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p7')",
+																"target_property_name": "#visible"
+															}
+														],
+														"anchor_from": "bottom_right",
+														"anchor_to": "bottom_right",
+														"offset": [
+															0,
+															1
+														]
+													}
+												},
+												{
+													"amp_p8@r4isen1920_waila_common.label": {
+														"text": "VIII",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p8')",
+																"target_property_name": "#visible"
+															}
+														],
+														"anchor_from": "bottom_right",
+														"anchor_to": "bottom_right",
+														"offset": [
+															0,
+															1
+														]
+													}
+												},
+												{
+													"amp_p9@r4isen1920_waila_common.label": {
+														"text": "IX",
+														"font_scale_factor": 0.75,
+														"color": "$color",
+														"bindings": [
+															{
+																"binding_type": "view",
+																"source_control_name": "waila_data",
+																"resolve_sibling_scope": true,
+																"source_property_name": "(('%.2s' * ($data_d - ('%.6s' * $data_d))) = 'p9')",
+																"target_property_name": "#visible"
+															}
+														],
+														"anchor_from": "bottom_right",
+														"anchor_to": "bottom_right",
+														"offset": [
+															0,
+															1
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		]
+	},
+	"entity_portrait_renderer": {
+		"type": "custom",
+		"renderer": "live_horse_renderer",
+		"offset": [
+			0,
+			"75%y + 2.5px"
+		],
+		"layer": "($layer + 1)",
+		"property_bag": {
+			"#entity_id": ""
+		},
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "((not (('%.2s' * (#clean - ('%.6s' * #clean))) = 'A:')) and (not (#preserved_sub = '0000000000000')) and (not (not ((#clean - '__r4ui:humanoid.') = #clean))))",
+				"target_property_name": "#visible"
+			},
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "#preserved_sub",
+				"target_property_name": "#entity_id"
+			}
+		]
+	},
+	"humanoid_portrait_renderer": {
+		"type": "custom",
+		"renderer": "live_horse_renderer",
+		"offset": [
+			0,
+			-2.5
+		],
+		"layer": "($layer + 1)",
+		"property_bag": {
+			"#entity_id": ""
+		},
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "((not (('%.2s' * (#clean - ('%.6s' * #clean))) = 'A:')) and (not (#preserved_sub = '0000000000000')) and (not ((#clean - '__r4ui:humanoid.') = #clean)))",
+				"target_property_name": "#visible"
+			},
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "#preserved_sub",
+				"target_property_name": "#entity_id"
+			}
+		]
+	},
+	"health_renderer_0": {
+		"type": "stack_panel",
+		"orientation": "horizontal",
+		"size": [
+			"100%c",
+			"100%cm"
+		],
+		"controls": [
+			{
+				"heart_0@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.8s' * #clean)))"
+				}
+			},
+			{
+				"heart_1@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.9s' * #clean)))"
+				}
+			},
+			{
+				"heart_2@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.10s' * #clean)))"
+				}
+			},
+			{
+				"heart_3@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.11s' * #clean)))"
+				}
+			},
+			{
+				"heart_4@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.12s' * #clean)))"
+				}
+			},
+			{
+				"heart_5@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.13s' * #clean)))"
+				}
+			},
+			{
+				"heart_6@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.14s' * #clean)))"
+				}
+			},
+			{
+				"heart_7@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.15s' * #clean)))"
+				}
+			},
+			{
+				"heart_8@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.16s' * #clean)))"
+				}
+			},
+			{
+				"heart_9@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.17s' * #clean)))"
+				}
+			}
+		],
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "(not (('' + ('%.1s' * (#clean - ('%.8s' * #clean)))) = 'x'))",
+				"target_property_name": "#visible"
+			}
+		]
+	},
+	"health_renderer_1": {
+		"type": "stack_panel",
+		"orientation": "horizontal",
+		"size": [
+			"100%c",
+			"100%cm"
+		],
+		"controls": [
+			{
+				"heart_10@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.18s' * #clean)))"
+				}
+			},
+			{
+				"heart_11@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.19s' * #clean)))"
+				}
+			},
+			{
+				"heart_12@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.20s' * #clean)))"
+				}
+			},
+			{
+				"heart_13@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.21s' * #clean)))"
+				}
+			},
+			{
+				"heart_14@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.22s' * #clean)))"
+				}
+			},
+			{
+				"heart_15@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.23s' * #clean)))"
+				}
+			},
+			{
+				"heart_16@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.24s' * #clean)))"
+				}
+			},
+			{
+				"heart_17@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.25s' * #clean)))"
+				}
+			},
+			{
+				"heart_18@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.26s' * #clean)))"
+				}
+			},
+			{
+				"heart_19@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.27s' * #clean)))"
+				}
+			}
+		],
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "(not (('' + ('%.1s' * (#clean - ('%.18s' * #clean)))) = 'y'))",
+				"target_property_name": "#visible"
+			}
+		]
+	},
+	"armor_renderer": {
+		"type": "stack_panel",
+		"orientation": "horizontal",
+		"size": [
+			"100%c",
+			"100%cm"
+		],
+		"controls": [
+			{
+				"armor_0@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.28s' * #clean)))"
+				}
+			},
+			{
+				"armor_1@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.29s' * #clean)))"
+				}
+			},
+			{
+				"armor_2@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.30s' * #clean)))"
+				}
+			},
+			{
+				"armor_3@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.31s' * #clean)))"
+				}
+			},
+			{
+				"armor_4@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.32s' * #clean)))"
+				}
+			},
+			{
+				"armor_5@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.33s' * #clean)))"
+				}
+			},
+			{
+				"armor_6@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.34s' * #clean)))"
+				}
+			},
+			{
+				"armor_7@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.35s' * #clean)))"
+				}
+			},
+			{
+				"armor_8@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.36s' * #clean)))"
+				}
+			},
+			{
+				"armor_9@r4isen1920_waila_common.icon_renderer": {
+					"$texture": "('%.1s' * (#clean - ('%.37s' * #clean)))"
+				}
+			}
+		],
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "(not (('' + ('%.1s' * (#clean - ('%.28s' * #clean)))) = 'd'))",
+				"target_property_name": "#visible"
+			}
+		]
+	},
+	"effects_renderer@common.empty_panel": {
+		"size": [
+			"100%c + 3px",
+			"100%c + 1px"
+		],
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "waila_data",
+				"resolve_sibling_scope": true,
+				"source_property_name": "(not (('%.3s' * (#clean - ('%.321s' * #clean))) = 'e00'))",
+				"target_property_name": "#visible"
+			}
+		],
+		"controls": [
+			{
+				"waila_data@r4isen1920_waila_common.waila_data": {}
+			},
+			{
+				"verti": {
+					"type": "stack_panel",
+					"orientation": "vertical",
+					"size": [
+						"100%cm",
+						"100%c"
+					],
+					"offset": [
+						0,
+						0.5
+					],
+					"$is_expanded": true,
+					"bindings": [
+						{
+							"binding_type": "view",
+							"source_control_name": "waila_data",
+							"resolve_sibling_scope": true,
+							"source_property_name": "(not ((('%.3s' * (#clean - ('%.321s' * #clean))) = 'e03') or (('%.3s' * (#clean - ('%.321s' * #clean))) = 'e04')))",
+							"target_property_name": "#visible"
+						}
+					],
+					"controls": [
+						{
+							"waila_data@r4isen1920_waila_common.waila_data": {}
+						},
+						{
+							"speed@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "speed",
+								"$data_b": "potion.moveSpeed",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.49s' * #clean)))"
+							}
+						},
+						{
+							"slowness@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "slowness",
+								"$data_b": "potion.moveSlowdown",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.57s' * #clean)))"
+							}
+						},
+						{
+							"haste@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "haste",
+								"$data_b": "potion.digSpeed",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.65s' * #clean)))"
+							}
+						},
+						{
+							"mining_fatigue@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "mining_fatigue",
+								"$data_b": "potion.digSlowDown",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.73s' * #clean)))"
+							}
+						},
+						{
+							"strength@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "strength",
+								"$data_b": "potion.damageBoost",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.81s' * #clean)))"
+							}
+						},
+						{
+							"instant_health@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "instant_health",
+								"$data_b": "potion.heal",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.89s' * #clean)))"
+							}
+						},
+						{
+							"instant_damage@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "instant_damage",
+								"$data_b": "potion.harm",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.97s' * #clean)))"
+							}
+						},
+						{
+							"jump_boost@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "jump_boost",
+								"$data_b": "potion.jump",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.105s' * #clean)))"
+							}
+						},
+						{
+							"nausea@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "nausea",
+								"$data_b": "potion.confusion",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.113s' * #clean)))"
+							}
+						},
+						{
+							"regeneration@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "regeneration",
+								"$data_b": "potion.regeneration",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.121s' * #clean)))"
+							}
+						},
+						{
+							"resistance@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "resistance",
+								"$data_b": "potion.resistance",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.129s' * #clean)))"
+							}
+						},
+						{
+							"fire_resistance@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "fire_resistance",
+								"$data_b": "potion.fireResistance",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.137s' * #clean)))"
+							}
+						},
+						{
+							"water_breathing@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "water_breathing",
+								"$data_b": "potion.waterBreathing",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.145s' * #clean)))"
+							}
+						},
+						{
+							"invisibility@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "invisibility",
+								"$data_b": "potion.invisibility",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.153s' * #clean)))"
+							}
+						},
+						{
+							"blindness@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "blindness",
+								"$data_b": "potion.blindness",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.161s' * #clean)))"
+							}
+						},
+						{
+							"night_vision@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "night_vision",
+								"$data_b": "potion.nightVision",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.169s' * #clean)))"
+							}
+						},
+						{
+							"hunger@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "hunger",
+								"$data_b": "potion.hunger",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.177s' * #clean)))"
+							}
+						},
+						{
+							"weakness@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "weakness",
+								"$data_b": "potion.weakness",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.185s' * #clean)))"
+							}
+						},
+						{
+							"poison@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "poison",
+								"$data_b": "potion.poison",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.193s' * #clean)))"
+							}
+						},
+						{
+							"wither@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "wither",
+								"$data_b": "potion.wither",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.201s' * #clean)))"
+							}
+						},
+						{
+							"health_boost@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "health_boost",
+								"$data_b": "potion.healthBoost",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.209s' * #clean)))"
+							}
+						},
+						{
+							"absorption@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "absorption",
+								"$data_b": "potion.absorption",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.217s' * #clean)))"
+							}
+						},
+						{
+							"saturation@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "saturation",
+								"$data_b": "potion.saturation",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.225s' * #clean)))"
+							}
+						},
+						{
+							"levitation@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "levitation",
+								"$data_b": "potion.levitation",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.233s' * #clean)))"
+							}
+						},
+						{
+							"fatal_poison@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "fatal_poison",
+								"$data_b": "potion.poison",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.241s' * #clean)))"
+							}
+						},
+						{
+							"slow_falling@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "slow_falling",
+								"$data_b": "potion.slowFalling",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.249s' * #clean)))"
+							}
+						},
+						{
+							"conduit_power@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "conduit_power",
+								"$data_b": "potion.conduitPower",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.257s' * #clean)))"
+							}
+						},
+						{
+							"bad_omen@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "bad_omen",
+								"$data_b": "effect.badOmen",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.265s' * #clean)))"
+							}
+						},
+						{
+							"village_hero@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "village_hero",
+								"$data_b": "effect.villageHero",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.273s' * #clean)))"
+							}
+						},
+						{
+							"darkness@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "darkness",
+								"$data_b": "effect.darkness",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.281s' * #clean)))"
+							}
+						},
+						{
+							"wind_charged@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "wind_charged",
+								"$data_b": "effect.wind_charged",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.289s' * #clean)))"
+							}
+						},
+						{
+							"weaving@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "weaving",
+								"$data_b": "effect.weaving",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.297s' * #clean)))"
+							}
+						},
+						{
+							"oozing@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "oozing",
+								"$data_b": "effect.oozing",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.305s' * #clean)))"
+							}
+						},
+						{
+							"infested@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "infested",
+								"$data_b": "effect.infested",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.313s' * #clean)))"
+							}
+						}
+					]
+				}
+			},
+			{
+				"hori": {
+					"type": "stack_panel",
+					"orientation": "horizontal",
+					"size": [
+						"100%c",
+						"100%cm"
+					],
+					"offset": [
+						0,
+						0.5
+					],
+					"$is_expanded": false,
+					"bindings": [
+						{
+							"binding_type": "view",
+							"source_control_name": "waila_data",
+							"resolve_sibling_scope": true,
+							"source_property_name": "(not ((('%.3s' * (#clean - ('%.321s' * #clean))) = 'e01') or (('%.3s' * (#clean - ('%.321s' * #clean))) = 'e02')))",
+							"target_property_name": "#visible"
+						}
+					],
+					"controls": [
+						{
+							"waila_data@r4isen1920_waila_common.waila_data": {}
+						},
+						{
+							"speed@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "speed",
+								"$data_b": "potion.moveSpeed",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.49s' * #clean)))"
+							}
+						},
+						{
+							"slowness@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "slowness",
+								"$data_b": "potion.moveSlowdown",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.57s' * #clean)))"
+							}
+						},
+						{
+							"haste@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "haste",
+								"$data_b": "potion.digSpeed",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.65s' * #clean)))"
+							}
+						},
+						{
+							"mining_fatigue@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "mining_fatigue",
+								"$data_b": "potion.digSlowDown",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.73s' * #clean)))"
+							}
+						},
+						{
+							"strength@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "strength",
+								"$data_b": "potion.damageBoost",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.81s' * #clean)))"
+							}
+						},
+						{
+							"instant_health@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "instant_health",
+								"$data_b": "potion.heal",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.89s' * #clean)))"
+							}
+						},
+						{
+							"instant_damage@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "instant_damage",
+								"$data_b": "potion.harm",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.97s' * #clean)))"
+							}
+						},
+						{
+							"jump_boost@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "jump_boost",
+								"$data_b": "potion.jump",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.105s' * #clean)))"
+							}
+						},
+						{
+							"nausea@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "nausea",
+								"$data_b": "potion.confusion",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.113s' * #clean)))"
+							}
+						},
+						{
+							"regeneration@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "regeneration",
+								"$data_b": "potion.regeneration",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.121s' * #clean)))"
+							}
+						},
+						{
+							"resistance@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "resistance",
+								"$data_b": "potion.resistance",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.129s' * #clean)))"
+							}
+						},
+						{
+							"fire_resistance@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "fire_resistance",
+								"$data_b": "potion.fireResistance",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.137s' * #clean)))"
+							}
+						},
+						{
+							"water_breathing@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "water_breathing",
+								"$data_b": "potion.waterBreathing",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.145s' * #clean)))"
+							}
+						},
+						{
+							"invisibility@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "invisibility",
+								"$data_b": "potion.invisibility",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.153s' * #clean)))"
+							}
+						},
+						{
+							"blindness@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "blindness",
+								"$data_b": "potion.blindness",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.161s' * #clean)))"
+							}
+						},
+						{
+							"night_vision@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "night_vision",
+								"$data_b": "potion.nightVision",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.169s' * #clean)))"
+							}
+						},
+						{
+							"hunger@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "hunger",
+								"$data_b": "potion.hunger",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.177s' * #clean)))"
+							}
+						},
+						{
+							"weakness@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "weakness",
+								"$data_b": "potion.weakness",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.185s' * #clean)))"
+							}
+						},
+						{
+							"poison@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "poison",
+								"$data_b": "potion.poison",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.193s' * #clean)))"
+							}
+						},
+						{
+							"wither@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "wither",
+								"$data_b": "potion.wither",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.201s' * #clean)))"
+							}
+						},
+						{
+							"health_boost@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "health_boost",
+								"$data_b": "potion.healthBoost",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.209s' * #clean)))"
+							}
+						},
+						{
+							"absorption@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "absorption",
+								"$data_b": "potion.absorption",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.217s' * #clean)))"
+							}
+						},
+						{
+							"saturation@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "saturation",
+								"$data_b": "potion.saturation",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.225s' * #clean)))"
+							}
+						},
+						{
+							"levitation@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "levitation",
+								"$data_b": "potion.levitation",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.233s' * #clean)))"
+							}
+						},
+						{
+							"fatal_poison@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "fatal_poison",
+								"$data_b": "potion.poison",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.241s' * #clean)))"
+							}
+						},
+						{
+							"slow_falling@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "slow_falling",
+								"$data_b": "potion.slowFalling",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.249s' * #clean)))"
+							}
+						},
+						{
+							"conduit_power@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "conduit_power",
+								"$data_b": "potion.conduitPower",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.257s' * #clean)))"
+							}
+						},
+						{
+							"bad_omen@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "bad_omen",
+								"$data_b": "effect.badOmen",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.265s' * #clean)))"
+							}
+						},
+						{
+							"village_hero@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "village_hero",
+								"$data_b": "effect.villageHero",
+								"$data_c": false,
+								"$data_d": "('%.8s' * (#clean - ('%.273s' * #clean)))"
+							}
+						},
+						{
+							"darkness@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "darkness",
+								"$data_b": "effect.darkness",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.281s' * #clean)))"
+							}
+						},
+						{
+							"wind_charged@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "wind_charged",
+								"$data_b": "effect.wind_charged",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.289s' * #clean)))"
+							}
+						},
+						{
+							"weaving@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "weaving",
+								"$data_b": "effect.weaving",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.297s' * #clean)))"
+							}
+						},
+						{
+							"oozing@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "oozing",
+								"$data_b": "effect.oozing",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.305s' * #clean)))"
+							}
+						},
+						{
+							"infested@r4isen1920_waila_entity.status_effect_renderer": {
+								"$data_a": "infested",
+								"$data_b": "effect.infested",
+								"$data_c": true,
+								"$data_d": "('%.8s' * (#clean - ('%.313s' * #clean)))"
+							}
+						},
+						{
+							"etc_effects_panel@common.empty_panel": {
+								"size": [
+									16,
+									16
+								],
+								"controls": [
+									{
+										"label@r4isen1920_waila_common.label": {
+											"text": "..."
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}

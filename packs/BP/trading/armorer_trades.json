@@ -1,0 +1,195 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Blockception/Minecraft-bedrock-json-schemas/main/behavior/trading/trading.json",
+  "tiers": [
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:coal:0",
+              "quantity": {
+                "min": 10,
+                "max": 20
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:emerald"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:iron_helmet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:iron_ingot",
+              "quantity": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:emerald"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 8,
+                "max": 14
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:iron_chestplate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "max": 2,
+                "min": 1
+              }
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 16,
+                "max": 20
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:diamond_chestplate",
+              "functions": [
+                {
+                  "function": "enchant_with_levels",
+                  "treasure": false,
+                  "levels": {
+                    "min": 5,
+                    "max": 19
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 2,
+                "max": 5
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:chainmail_boots"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 6,
+                "max": 9
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:chainmail_leggings"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 2,
+                "max": 5
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:chainmail_helmet"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 5,
+                "max": 10
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:chainmail_chestplate"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

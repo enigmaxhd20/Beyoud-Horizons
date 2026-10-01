@@ -1,0 +1,22 @@
+{
+	"format_version": "1.21.60",
+	"minecraft:crafting_items_catalog": {
+		"categories": [
+			{
+				"category_name": "items",
+				"groups": [
+					{
+						"group_identifier": {
+							"icon": "bs:profile",
+							"name": "bs:itemGroup.ui"
+						},
+						"items": [
+							"bs:profile",
+							"bs:games"
+						]
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,23 @@
+{
+  "name": "regolith",
+  "module": "index.ts",
+  "devDependencies": {
+    "@minecraft/server": "^2.12.0-beta.1.26.60-preview.29",
+    "@minecraft/server-ui": "2.4.0-beta.1.26.60-preview.29",
+    "@types/bun": "latest",
+    "archiver": "7",
+    "esbuild": "latest",
+    "ts-morph": "latest",
+    "typescript": "latest"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "mc:update": "node scripts/update-preview.mjs"
+  },
+  "dependencies": {
+    "@bedrock-oss/add-on-registry": "^1.0.30",
+    "@bedrock-oss/bedrock-boost": "^2.2.0",
+    "@bedrock-oss/stylish": "^0.0.5"
+  }
+}

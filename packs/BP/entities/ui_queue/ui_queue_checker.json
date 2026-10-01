@@ -1,0 +1,13 @@
+{
+	"format_version": "1.18.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "uq:ui_queue_checker",
+			"is_spawnable": false,
+			"is_summonable": false,
+			"is_experimental": false
+		},
+			
+		"components": {}
+	}
+}

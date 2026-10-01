@@ -1,0 +1,25 @@
+{
+  "format_version": "1.26.50",
+  "sound_definitions": {
+   
+  },
+  "minecraft:server_sound_definitions": [
+    {
+      "sound_event_name": "creatorpack:my_cool_song",
+      "duration_info": {
+        "mode": "game_time",
+        "seconds": 180.0
+      }
+    },
+    {
+      "sound_event_name": "creatorpack:my_other_song",
+      "duration_info": {
+        "mode": "real_time",
+        "seconds": 12.5
+      }
+    },
+    {
+      "sound_event_name": "creatorpack:ambient_loop"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.2.json",
+	"author": "Enigmax",
+	"name": "beyond_horizon",
+	"packs": {
+		"behaviorPack": "./packs/BP",
+		"resourcePack": "./packs/RP"
+	},
+	"regolith": {
+		"dataPath": "./packs/data",
+		"filterDefinitions": {
+			"compile_ts": {
+				"runWith": "nodejs",
+				"script": "./filters/compile_ts.cjs"
+			},
+			"export_to_game": {
+				"runWith": "nodejs",
+				"script": "./filters/export_to_game.cjs"
+			},
+			"gametests": {
+				"url": "github.com/Bedrock-OSS/regolith-filters",
+				"version": "1.8.1"
+			},
+			"generate_uncraft_table": {
+				"runWith": "nodejs",
+				"script": "./filters/generate_uncraft_table.cjs"
+			},
+			"jsonte": {
+				"url": "github.com/MCDevKit/regolith-library",
+				"version": "2.15.0"
+			},
+			"meta_gen": {
+				"url": "github.com/r4isen1920/regolith-filters",
+				"version": "1.2.0"
+			},
+			"package_mcaddon": {
+				"runWith": "nodejs",
+				"script": "./filters/package_mcaddon.cjs"
+			},
+			"packer": {
+				"url": "github.com/MCDevKit/regolith-library",
+				"version": "1.0.3"
+			},
+			"strip_bom": {
+				"runWith": "nodejs",
+				"script": "./filters/strip_bom.cjs"
+			},
+			"type_check": {
+				"runWith": "nodejs",
+				"script": "./filters/type_check.cjs"
+			}
+		},
+		"formatVersion": "1.2.0",
+		"profiles": {
+			"bundle": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"profile": "bundle-base"
+					},
+					{
+						"profile": "bundle-scripts"
+					},
+					{
+						"filter": "package_mcaddon"
+					},
+					{
+						"filter": "export_to_game"
+					}
+				]
+			},
+			"bundle-base": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "strip_bom"
+					},
+					{
+						"filter": "meta_gen",
+						"settings": {}
+					}
+				]
+			},
+			"bundle-scripts": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "gametests",
+						"settings": {
+							"buildOptions": {
+								"bundle": true,
+								"format": "esm",
+								"minify": true,
+								"sourcemap": true,
+								"target": "es2020"
+							},
+							"manifest": "BP/manifest.json",
+							"moduleUUID": "4f7c85f8-855c-4a94-b379-3a28efe52a01",
+							"modules": [
+								"@minecraft/server@2.12.0-beta",
+								"@minecraft/server-ui@2.4.0-beta"
+							],
+							"outfile": "BP/scripts/main.js"
+						}
+					}
+				]
+			},
+			"default": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "compile_ts"
+					},
+					{
+						"filter": "export_to_game"
+					}
+				]
+			},
+			"generate_uncraft": {
+				"export": {
+					"readOnly": true,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "generate_uncraft_table",
+						"settings": {
+							"excludeItems": [
+								"minecraft:oak_planks",
+								"minecraft:stick"
+							],
+							"outputDir": "./BP/recipes/uncraft",
+							"recipesDir": "./BP/recipes",
+							"returnRate": 1
+						}
+					}
+				]
+			},
+			"package": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "compile_ts"
+					},
+					{
+						"filter": "package_mcaddon"
+					}
+				]
+			},
+			"release": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "compile_ts"
+					},
+					{
+						"filter": "package_mcaddon"
+					}
+				]
+			},
+			"test": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "compile_ts"
+					},
+					{
+						"filter": "type_check"
+					}
+				]
+			}
+		}
+	}
+}

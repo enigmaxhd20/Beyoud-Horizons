@@ -1,0 +1,41 @@
+{
+  "namespace": "loading_custom",
+  "loading_image_panel": {
+    "type": "image",
+    "texture": "textures/ui/game/screen/loading",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 10
+  },
+  "loading_screen_factory": {
+    "type": "panel",
+    "controls": [
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/black_background",
+          "layer": 1,
+          "size": [
+            "100%",
+            "100%"
+          ]
+        }
+      },
+      {
+        "anim": {
+          "type": "image",
+          "texture": "textures/ui/game/screen/loading",
+          "layer": 5,
+          "size": [
+            128,
+            72
+          ]
+        }
+      }
+    ]
+  }
+}

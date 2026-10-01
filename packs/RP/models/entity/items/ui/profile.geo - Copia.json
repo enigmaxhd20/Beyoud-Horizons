@@ -1,0 +1,142 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.profile",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [
+					0,
+					0.75,
+					0
+				]
+			},
+			"_comment": "profile item UI geometry",
+			"bones": [
+				{
+					"name": "Root_item",
+					"pivot": [
+						1,
+						4.16917,
+						0.68921
+					],
+					"rotation": [
+						2.5,
+						0,
+						0
+					],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
+					"cubes": [
+						{
+							"origin": [
+								-1,
+								0.8927,
+								0.29576
+							],
+							"size": [
+								3,
+								5,
+								2
+							],
+							"pivot": [
+								6,
+								-11.1073,
+								0.29576
+							],
+							"rotation": [
+								5.00474,
+								-2.49048,
+								-0.21803
+							],
+							"uv": [
+								0,
+								6
+							]
+						},
+						{
+							"origin": [
+								-3,
+								0.8927,
+								1.29576
+							],
+							"size": [
+								2,
+								5,
+								2
+							],
+							"pivot": [
+								3,
+								-11.1073,
+								1.29576
+							],
+							"rotation": [
+								10,
+								0,
+								0
+							],
+							"uv": [
+								10,
+								6
+							]
+						},
+						{
+							"origin": [
+								2,
+								0.8927,
+								-2.70424
+							],
+							"size": [
+								2,
+								5,
+								2
+							],
+							"pivot": [
+								7,
+								-11.1073,
+								-2.70424
+							],
+							"rotation": [
+								-5,
+								0,
+								0
+							],
+							"uv": [
+								0,
+								13
+							]
+						},
+						{
+							"origin": [
+								-1,
+								5.8927,
+								-0.70424
+							],
+							"size": [
+								3,
+								3,
+								3
+							],
+							"pivot": [
+								6,
+								-6.1073,
+								-0.70424
+							],
+							"rotation": [
+								5,
+								0,
+								0
+							],
+							"uv": [
+								0,
+								0
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

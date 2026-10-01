@@ -1,0 +1,2548 @@
+{
+  /* r4isen1920によって作成されました | MITライセンス */
+
+  "namespace": "r4isen1920_waila_tile",
+
+  //! Deprecated in favor of "item_aux_inv_renderer" !//
+  "item_aux_renderer": {
+    "type": "custom",
+    "renderer": "inventory_item_renderer",
+
+    "layer": "($layer + 1)",
+
+    "property_bag": {
+      "#item_id_aux": "$item_aux"
+    }
+  },
+
+  //* Author: NguyenDuck (https://github.com/NguyenDuck) *//
+  // mc-disable-next-line resourcepack.ui.inheritance.missing
+  "item_aux_inv_renderer@common.empty_panel": {
+    "$collection_index": 17,
+    "$show_item_count": false,
+
+    "controls": [
+      {
+        "inv": {
+          "type": "custom",
+          "renderer": "inventory_item_renderer",
+
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": ["100%", "100%"],
+          "layer": "($layer + 1)",
+
+          "controls": [
+            {
+              "stack": {
+                "type": "stack_panel",
+                "size": [0, 0],
+
+                "$slot_name": "slot",
+                "$collection_name": "hotbar_items",
+                "collection_name": "$collection_name",
+
+                "controls": [
+                  {
+                    "$slot_name@common.empty_panel": {
+                      "collection_index": "$collection_index",
+                      "bindings": [
+                        {
+                          "binding_type": "collection",
+                          "binding_name": "#item_id_aux",
+                          "binding_collection_name": "$collection_name",
+                          "binding_condition": "visibility_changed"
+                        },
+                        {
+                          "binding_type": "collection",
+                          "binding_name": "#inventory_stack_count",
+                          "binding_collection_name": "$collection_name",
+                          "binding_condition": "visibility_changed"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "$slot_name",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "#item_id_aux",
+                    "target_property_name": "#item_id_aux"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "$slot_name",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "#inventory_stack_count",
+                    "target_property_name": "#inventory_stack_count"
+                  }
+                ]
+              }
+            },
+
+            {
+              "item_amount@r4isen1920_waila_common.label": {
+                "anchor_from": "bottom_right",
+                "anchor_to": "bottom_right",
+                "offset": [0, 1],
+
+                "text": "#text",
+                "font_scale_factor": 0.75,
+                "shadow": true,
+
+                "ignored": "(not $show_item_count)",
+
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "stack",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "#inventory_stack_count",
+                    "target_property_name": "#text"
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "stack",
+              "resolve_sibling_scope": true,
+              "source_property_name": "#item_id_aux",
+              "target_property_name": "#item_id_aux"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "item_inventory@item_aux_inv_renderer": {
+    "$index|default": 0,
+    "$show_item_count": true,
+    "size": [14, 14],
+
+    "variables": [
+      {
+        "requires": "true",
+        //? player.container is following the 36-slot format (9 hotbar; 27 inventory)
+        "$collection_index": "(9 + $index)"
+      }
+    ]
+  },
+
+  "furnace_inventory": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+
+    "size": ["100%c", 14],
+
+    "controls": [
+      {
+        "input@r4isen1920_waila_tile.item_inventory": {
+          "$index": 0
+        }
+      },
+      {
+        "fuel@r4isen1920_waila_tile.item_inventory": {
+          "$index": 1
+        }
+      },
+      {
+        "arrow_centerer@common.empty_panel": {
+          "size": [21, "100%"], // 15px + 6px (padding)
+          "controls": [
+            {
+              "arrow@r4isen1920_waila_common.image": {
+                "size": [15, 10],
+                "texture": "textures/r4isen1920/waila/arrow"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "output@r4isen1920_waila_tile.item_inventory": {
+          "$index": 2
+        }
+      }
+    ]
+  },
+
+  "brewing_stand_inventory": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+
+    "size": ["100%c", 30],
+
+    "controls": [
+      {
+        "inputs": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+
+          "size": [14, "100%"],
+
+          "controls": [
+            {
+              "reagent@r4isen1920_waila_tile.item_inventory": {
+                "$index": 0
+              }
+            },
+            { "padding@common.empty_panel": { "size": [14, 2] } },
+            {
+              "blaze_powder@r4isen1920_waila_tile.item_inventory": {
+                "$index": 4
+              }
+            }
+          ]
+        }
+      },
+      {
+        "bubbles_centerer@common.empty_panel": {
+          "size": [18, "100%"], // 12px + 6px (padding)
+          "controls": [
+            {
+              "bubbles@r4isen1920_waila_common.image": {
+                "size": [12, 30],
+                "texture": "textures/r4isen1920/waila/bubbles"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "potion_1_and_3": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+
+          "size": [14, "100%"],
+
+          "controls": [
+            {
+              "potion_1@r4isen1920_waila_tile.item_inventory": {
+                "$index": 1
+              }
+            },
+            { "padding@common.empty_panel": { "size": [14, 2] } },
+            {
+              "potion_3@r4isen1920_waila_tile.item_inventory": {
+                "$index": 3
+              }
+            }
+          ]
+        }
+      },
+      {
+        "potion_2_centerer@common.empty_panel": {
+          "size": [14, "100%"],
+
+          "controls": [
+            {
+              "potion_2@r4isen1920_waila_tile.item_inventory": {
+                "$index": 2
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  // mc-disable-next-line resourcepack.ui.inheritance.missing
+  "generic_container_inventory_item@common.empty_panel": {
+    "size": ["100%c - 1px", "100%c - 1px"],
+
+    "$border_type|default": "center",
+
+    "controls": [
+      {
+        "border@r4isen1920_waila_common.image": {
+          "type": "image",
+          "size": ["100%c + 4px", "100%c + 4px"],
+
+          "$texture": "('textures/r4isen1920/waila/border_' + $border_type)",
+          "texture": "$texture",
+
+          "variables": {
+            "requires": "true",
+            "$index": "$a_index"
+          },
+
+          "controls": [
+            {
+              "item@r4isen1920_waila_tile.item_inventory": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "generic_container_inventory_row": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", "100%cm"]
+  },
+
+  "chest_inventory": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+
+    "size": ["100%cm", "100%c"],
+
+    "controls": [
+      {
+        "row_0@r4isen1920_waila_tile.generic_container_inventory_row": {
+          "controls": [
+            {
+              "item_0@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 0,
+                "$border_type": "top_left"
+              }
+            },
+            {
+              "item_1@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 1,
+                "$border_type": "top_middle"
+              }
+            },
+            {
+              "item_2@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 2,
+                "$border_type": "top_middle"
+              }
+            },
+            {
+              "item_3@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 3,
+                "$border_type": "top_middle"
+              }
+            },
+            {
+              "item_4@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 4,
+                "$border_type": "top_middle"
+              }
+            },
+            {
+              "item_5@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 5,
+                "$border_type": "top_middle"
+              }
+            },
+            {
+              "item_6@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 6,
+                "$border_type": "top_middle"
+              }
+            },
+            {
+              "item_7@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 7,
+                "$border_type": "top_middle"
+              }
+            },
+            {
+              "item_8@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 9, //? skipped a_index 8 because it is reserved for block icon
+                "$border_type": "top_right"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "row_1@r4isen1920_waila_tile.generic_container_inventory_row": {
+          "controls": [
+            {
+              "item_0@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 10,
+                "$border_type": "bottom_left"
+              }
+            },
+            {
+              "item_1@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 11,
+                "$border_type": "bottom_middle"
+              }
+            },
+            {
+              "item_2@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 12,
+                "$border_type": "bottom_middle"
+              }
+            },
+            {
+              "item_3@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 13,
+                "$border_type": "bottom_middle"
+              }
+            },
+            {
+              "item_4@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 14,
+                "$border_type": "bottom_middle"
+              }
+            },
+            {
+              "item_5@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 15,
+                "$border_type": "bottom_middle"
+              }
+            },
+            {
+              "item_6@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 16,
+                "$border_type": "bottom_middle"
+              }
+            },
+            {
+              "item_7@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 17,
+                "$border_type": "bottom_middle"
+              }
+            },
+            { "waila_data@r4isen1920_waila_common.waila_data": {} },
+            {
+              "elipsis_overflow@common.empty_panel": {
+                "size": ["100%sm", "100%sm"],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "waila_data",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "(not ((#clean - '__r4ui:inv.size_') = #clean))",
+                    "target_property_name": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "waila_data@r4isen1920_waila_common.waila_data": {}
+                  },
+                  {
+                    "n1@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+1",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_1__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n2@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+2",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_2__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n3@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+3",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_3__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n4@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+4",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_4__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n5@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+5",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_5__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n6@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+6",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_6__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n7@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+7",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_7__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n8@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+8",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_8__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n9@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+9",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_9__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n10@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+10",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_10__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n11@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+11",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_11__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n12@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+12",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_12__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n13@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+13",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_13__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n14@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+14",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_14__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n15@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+15",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_15__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n16@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+16",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_16__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n17@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+17",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_17__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n18@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+18",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_18__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n19@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+19",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_19__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n20@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+20",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_20__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n21@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+21",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_21__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n22@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+22",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_22__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n23@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+23",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_23__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n24@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+24",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_24__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n25@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+25",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_25__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n26@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+26",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_26__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n27@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+27",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_27__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n28@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+28",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_28__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n29@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+29",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_29__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n30@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+30",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_30__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n31@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+31",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_31__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n32@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+32",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_32__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n33@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+33",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_33__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n34@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+34",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_34__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n35@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+35",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_35__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n36@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+36",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_36__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n37@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+37",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_37__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n38@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+38",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_38__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n39@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+39",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_39__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n40@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+40",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_40__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n41@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+41",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_41__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n42@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+42",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_42__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n43@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+43",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_43__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n44@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+44",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_44__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n45@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+45",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_45__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n46@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+46",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_46__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n47@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+47",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_47__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n48@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+48",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_48__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n49@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+49",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_49__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n50@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+50",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_50__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n51@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+51",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_51__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n52@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+52",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_52__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n53@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+53",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_53__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n54@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+54",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_54__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n55@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+55",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_55__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n56@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+56",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_56__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n57@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+57",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_57__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n58@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+58",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_58__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n59@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+59",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_59__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n60@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+60",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_60__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n61@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+61",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_61__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n62@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+62",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_62__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n63@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+63",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_63__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n64@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+64",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_64__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n65@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+65",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_65__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n66@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+66",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_66__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n67@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+67",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_67__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n68@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+68",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_68__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n69@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+69",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_69__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n70@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+70",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_70__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n71@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+71",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_71__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n72@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+72",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_72__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n73@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+73",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_73__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n74@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+74",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_74__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n75@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+75",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_75__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n76@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+76",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_76__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n77@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+77",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_77__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n78@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+78",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_78__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n79@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+79",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_79__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n80@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+80",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_80__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n81@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+81",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_81__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n82@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+82",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_82__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n83@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+83",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_83__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n84@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+84",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_84__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n85@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+85",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_85__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n86@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+86",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_86__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n87@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+87",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_87__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n88@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+88",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_88__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n89@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+89",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_89__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n90@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+90",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_90__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n91@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+91",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_91__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n92@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+92",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_92__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n93@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+93",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_93__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n94@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+94",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_94__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n95@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+95",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_95__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n96@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+96",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_96__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n97@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+97",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_97__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n98@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+98",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_98__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "n99@r4isen1920_waila_common.label": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 0.75,
+                      "text": "§o+99",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "waila_data",
+                          "resolve_sibling_scope": true,
+                          "source_property_name": "(not ((#clean - '__r4ui:inv.size_99__') = #clean))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "dropper_inventory": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+
+    "size": ["100%cm", "100%c"],
+
+    "controls": [
+      {
+        "row_0@r4isen1920_waila_tile.generic_container_inventory_row": {
+          "controls": [
+            {
+              "item_0@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 0,
+                "$border_type": "top_left"
+              }
+            },
+            {
+              "item_1@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 1,
+                "$border_type": "top_middle"
+              }
+            },
+            {
+              "item_2@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 2,
+                "$border_type": "top_right"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "row_1@r4isen1920_waila_tile.generic_container_inventory_row": {
+          "controls": [
+            {
+              "item_0@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 3,
+                "$border_type": "left_middle"
+              }
+            },
+            {
+              "item_1@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 4
+              }
+            },
+            {
+              "item_2@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 5,
+                "$border_type": "right_middle"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "row_2@r4isen1920_waila_tile.generic_container_inventory_row": {
+          "controls": [
+            {
+              "item_0@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 6,
+                "$border_type": "bottom_left"
+              }
+            },
+            {
+              "item_1@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 7,
+                "$border_type": "bottom_middle"
+              }
+            },
+            {
+              "item_2@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 9, //? skipped a_index 8 because it is reserved for block icon
+                "$border_type": "bottom_right"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "hopper_inventory": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+
+    "size": ["100%cm", "100%c"],
+
+    "controls": [
+      {
+        "row_0@r4isen1920_waila_tile.generic_container_inventory_row": {
+          "controls": [
+            {
+              "item_0@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 0,
+                "$border_type": "leftmost"
+              }
+            },
+            {
+              "item_1@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 1,
+                "$border_type": "middlemost"
+              }
+            },
+            {
+              "item_2@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 2,
+                "$border_type": "middlemost"
+              }
+            },
+            {
+              "item_3@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 3,
+                "$border_type": "middlemost"
+              }
+            },
+            {
+              "item_4@r4isen1920_waila_tile.generic_container_inventory_item": {
+                "$a_index": 4,
+                "$border_type": "rightmost"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "block_tags": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": ["100%c", 11],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "waila_data",
+        "resolve_sibling_scope": true,
+        "source_property_name": "((('%.6s' * #clean) = '_r4ui:') and ((#clean - ':zz,z;zz,z') = #clean))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "waila_data@r4isen1920_waila_common.waila_data": {}
+      },
+      {
+        "icon_0_tile@r4isen1920_waila_common.image": {
+          "texture": "#texture",
+          "size": ["100%y", "100%"],
+          "bilinear": true,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "waila_data",
+              "resolve_sibling_scope": true,
+              "source_property_name": "((('%.2s' * (#clean - ('%.6s' * #clean))) = 'A:') and ((#clean - ':zz,z;') = #clean))",
+              "target_property_name": "#visible"
+            },
+            {
+              "binding_type": "view",
+              "source_control_name": "waila_data",
+              "resolve_sibling_scope": true,
+              "source_property_name": "(('textures/r4isen1920/waila/icons/tags/tile/' + ('%.2s' * (#clean - ('%.8s' * #clean)))) - ':')",
+              "target_property_name": "#texture"
+            }
+          ],
+          "controls": [
+            {
+              "waila_data@r4isen1920_waila_common.waila_data": {}
+            },
+            {
+              "remarks@r4isen1920_waila_common.image": {
+                "texture": "#texture",
+                "bilinear": true,
+                "anchor_from": "bottom_right",
+                "anchor_to": "bottom_right",
+                "size": ["50%", "100%x"],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "waila_data",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "(('textures/r4isen1920/waila/icons/tags/' + ('%.1s' * (#clean - ('%.11s' * #clean)))) - ':')",
+                    "target_property_name": "#texture"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "icon_0_entity@r4isen1920_waila_common.image": {
+          "texture": "#texture",
+          "size": ["100%y", "100%"],
+          "bilinear": true,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "waila_data",
+              "resolve_sibling_scope": true,
+              "source_property_name": "((not (('%.2s' * (#clean - ('%.6s' * #clean))) = 'A:')) and ((#clean - ':zz,z;') = #clean))",
+              "target_property_name": "#visible"
+            },
+            {
+              "binding_type": "view",
+              "source_control_name": "waila_data",
+              "resolve_sibling_scope": true,
+              "source_property_name": "(('textures/r4isen1920/waila/icons/tags/entity/' + ('%.2s' * (#clean - ('%.39s' * #clean)))) - ':')",
+              "target_property_name": "#texture"
+            }
+          ],
+          "controls": [
+            {
+              "waila_data@r4isen1920_waila_common.waila_data": {}
+            },
+            {
+              "remarks@r4isen1920_waila_common.image": {
+                "texture": "#texture",
+                "bilinear": true,
+                "anchor_from": "bottom_right",
+                "anchor_to": "bottom_right",
+                "size": ["50%", "100%x"],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "waila_data",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "(('textures/r4isen1920/waila/icons/tags/' + ('%.1s' * (#clean - ('%.42s' * #clean)))) - ':')",
+                    "target_property_name": "#texture"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "icon_1_tile@r4isen1920_waila_common.image": {
+          "texture": "#texture",
+          "size": ["100%y", "100%"],
+          "bilinear": true,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "waila_data",
+              "resolve_sibling_scope": true,
+              "source_property_name": "((('%.2s' * (#clean - ('%.6s' * #clean))) = 'A:') and ((#clean - ';zz,z') = #clean))",
+              "target_property_name": "#visible"
+            },
+            {
+              "binding_type": "view",
+              "source_control_name": "waila_data",
+              "resolve_sibling_scope": true,
+              "source_property_name": "(('textures/r4isen1920/waila/icons/tags/tile/' + ('%.2s' * (#clean - ('%.13s' * #clean)))) - ':')",
+              "target_property_name": "#texture"
+            }
+          ],
+          "controls": [
+            {
+              "waila_data@r4isen1920_waila_common.waila_data": {}
+            },
+            {
+              "remarks@r4isen1920_waila_common.image": {
+                "texture": "#texture",
+                "bilinear": true,
+                "anchor_from": "bottom_right",
+                "anchor_to": "bottom_right",
+                "size": ["50%", "100%x"],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "waila_data",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "(('textures/r4isen1920/waila/icons/tags/' + ('%.1s' * (#clean - ('%.16s' * #clean)))) - ':')",
+                    "target_property_name": "#texture"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "icon_1_entity@r4isen1920_waila_common.image": {
+          "texture": "#texture",
+          "size": ["100%y", "100%"],
+          "bilinear": true,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "waila_data",
+              "resolve_sibling_scope": true,
+              "source_property_name": "((not (('%.2s' * (#clean - ('%.6s' * #clean))) = 'A:')) and ((#clean - ';zz,z') = #clean))",
+              "target_property_name": "#visible"
+            },
+            {
+              "binding_type": "view",
+              "source_control_name": "waila_data",
+              "resolve_sibling_scope": true,
+              "source_property_name": "(('textures/r4isen1920/waila/icons/tags/entity/' + ('%.2s' * (#clean - ('%.44s' * #clean)))) - ':')",
+              "target_property_name": "#texture"
+            }
+          ],
+          "controls": [
+            {
+              "waila_data@r4isen1920_waila_common.waila_data": {}
+            },
+            {
+              "remarks@r4isen1920_waila_common.image": {
+                "texture": "#texture",
+                "bilinear": true,
+                "anchor_from": "bottom_right",
+                "anchor_to": "bottom_right",
+                "size": ["50%", "100%x"],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "waila_data",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "(('textures/r4isen1920/waila/icons/tags/' + ('%.1s' * (#clean - ('%.47s' * #clean)))) - ':')",
+                    "target_property_name": "#texture"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

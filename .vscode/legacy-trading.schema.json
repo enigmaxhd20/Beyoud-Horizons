@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "tiers"
+  ],
+  "properties": {
+    "tiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "trades"
+        ],
+        "properties": {
+          "trades": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "wants",
+                "gives"
+              ],
+              "properties": {
+                "wants": {
+                  "type": "array"
+                },
+                "gives": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
