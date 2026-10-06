@@ -1,0 +1,6 @@
+{
+  "useWorldClock": true,
+  "clockId": "paleforest:pale_forest",
+  "timeTicks": 18000,
+  "fallbackToGlobalTime": true
+}

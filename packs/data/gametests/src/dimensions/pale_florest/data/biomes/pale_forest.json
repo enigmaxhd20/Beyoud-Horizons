@@ -1,0 +1,64 @@
+{
+  "id": "paleforest:pale_forest",
+  "surface": {
+    "rockBlock": "stone",
+    "rockLineY": 104,
+    "rockBlendBlocks": 8,
+    "primary": "paleMoss",
+    "secondary": "grass",
+    "primaryChance": 0.85
+  },
+  "decoration": {
+    "surfaceChance": 0.42,
+    "plants": [
+      {
+        "block": "openEyeblossom",
+        "above": 0.968
+      },
+      {
+        "block": "closedEyeblossom",
+        "above": 0.93
+      },
+      {
+        "block": "paleCarpet",
+        "above": 0.38
+      }
+    ],
+    "ceilingMoss": {
+      "block": "paleHangingMoss",
+      "columnSkipChance": 0.62,
+      "attachSkipChance": 0.26,
+      "maxY": 96,
+      "maxLength": 4,
+      "attachBlocks": [
+        "stone",
+        "coalOre",
+        "ironOre",
+        "copperOre",
+        "bedrock",
+        "dirt",
+        "grass",
+        "paleMoss"
+      ]
+    }
+  },
+  "trees": [
+    {
+      "structure": "pale_oak_tree",
+      "slotStart": 1,
+      "slotStep": 4,
+      "spawnChance": 0.83,
+      "minSpacingSq": 14,
+      "mountainSpawnChance": 0.4,
+      "mountainMinSpacingSq": 24
+    }
+  ],
+  "features": [
+    {
+      "type": "lava_pool",
+      "structure": "lava_pool",
+      "chance": 0.3,
+      "minDistanceFromShrine": 24
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:lighting_settings": {
+    "description": {
+      "identifier": "bs:global_dimmer_test"
+    },
+    "directional_lights": {
+      "orbital": {
+        "sun": {
+          "illuminance": {
+            "0.0": 109880.0,
+            "0.25": 18000.0,
+            "0.35": 260.0,
+            "0.5": 0.55,
+            "0.65": 260.0,
+            "0.75": 18000.0,
+            "1.0": 109880.0
+          },
+          "color": "#F3F6FF"
+        },
+        "moon": {
+          "illuminance": 0.09,
+          "color": "#BFC9D8"
+        },
+        "orbital_offset_degrees": 3.0
+      },
+      "flash": {
+        "illuminance": 2.5,
+        "color": "#D5DEE8"
+      }
+    },
+    "emissive": {
+      "desaturation": 0.15
+    },
+    "ambient": {
+      "illuminance": 0.008,
+      "color": "#B7C0C7"
+    },
+    "sky": {
+      "intensity": 0.42
+    }
+  }
+}

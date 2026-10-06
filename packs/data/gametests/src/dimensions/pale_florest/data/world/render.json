@@ -1,0 +1,8 @@
+{
+  "_doc": "Round generation radius that follows the render distance: radius = (renderChunks + extraChunks) * 16, clamped to [minRadius, maxRadius]. Rows are 1 block thick (grid.json).",
+  "useClientRenderDistance": true,
+  "fallbackChunks": 8,
+  "extraChunks": 1,
+  "minRadius": 48,
+  "maxRadius": 320
+}

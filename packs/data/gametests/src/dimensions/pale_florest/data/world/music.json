@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "trackId": "music.game.paleforest.ominous_song",
+  "loop": true,
+  "fade": 0.0,
+  "volume": 1.0,
+  "stopDelayTicks": 4,
+  "primaryDelayTicks": 16,
+  "fallbackDelayTicks": 42
+}

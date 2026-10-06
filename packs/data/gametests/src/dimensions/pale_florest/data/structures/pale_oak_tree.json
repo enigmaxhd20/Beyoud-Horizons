@@ -1,0 +1,126 @@
+{
+  "id": "pale_oak_tree",
+  "blocks": {
+    "log": "paleOakLog",
+    "leaves": "paleOakLeaves",
+    "heart": "creakingHeart",
+    "hangingMoss": "paleHangingMoss",
+    "clearOnTrunkBase": [
+      "paleCarpet",
+      "openEyeblossom",
+      "closedEyeblossom"
+    ]
+  },
+  "states": {
+    "log": {
+      "pillar_axis": "y"
+    },
+    "leaves": {
+      "persistent_bit": true,
+      "update_bit": false
+    }
+  },
+  "placement": {
+    "groundBlocks": [
+      "paleMoss",
+      "grass"
+    ],
+    "maxSlope": 1,
+    "mountain": {
+      "groundBlocks": [
+        "stone",
+        "dirt",
+        "grass",
+        "paleMoss"
+      ],
+      "maxSlope": 3,
+      "maxY": 150
+    }
+  },
+  "trunk": {
+    "baseHeight": 7,
+    "heightVariance": 3,
+    "shifts": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "shiftStartFromTop": {
+      "min": 2,
+      "variance": 2
+    }
+  },
+  "spire": {
+    "chance": 0.44,
+    "minHeight": 2,
+    "heightVariance": 3
+  },
+  "creakingHeart": {
+    "chance": 0.04,
+    "minLevelAboveGround": 4,
+    "offsetFromTop": 2
+  },
+  "canopy": {
+    "cornerSkipChance": 0.66,
+    "edgeSkipChance": 0.1,
+    "layers": [
+      {
+        "radius": 2,
+        "yOffset": -2,
+        "corners": false
+      },
+      {
+        "radius": 4,
+        "yOffset": -1,
+        "corners": true
+      },
+      {
+        "radius": 5,
+        "yOffset": 0,
+        "corners": true
+      },
+      {
+        "radius": 5,
+        "yOffset": 1,
+        "corners": true
+      },
+      {
+        "radius": 4,
+        "yOffset": 2,
+        "corners": true
+      },
+      {
+        "radius": 3,
+        "yOffset": 3,
+        "corners": true
+      }
+    ]
+  },
+  "hangingMoss": {
+    "radius": 5,
+    "minEdge": 2,
+    "innerMaxEdge": 3,
+    "innerSkip": 0.76,
+    "outerSkip": 0.34,
+    "maxLength": 4,
+    "scanBelow": 2,
+    "scanAbove": 3
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_doc": "Short black-screen hold while the player arrives in the dimension. arrivalRadius = round radius (blocks) around the arrival point generated before the screen is released (0 = no wait). There is no big pre-loading anymore: terrain streams around the player.",
+  "arrivalRadius": 48,
+  "maxHoldTicks": 600,
+  "progressIntervalTicks": 4,
+  "loadingScreen": {
+    "fade": true,
+    "color": {
+      "red": 0,
+      "green": 0,
+      "blue": 0
+    },
+    "holdSeconds": 86400,
+    "fadeOutSeconds": 0.8
+  }
+}

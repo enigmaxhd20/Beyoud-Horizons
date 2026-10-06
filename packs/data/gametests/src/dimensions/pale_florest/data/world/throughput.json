@@ -1,0 +1,12 @@
+{
+  "tickBudgetMs": 6,
+  "loadingBudgetMs": 20,
+  "recentCellsMax": 60000,
+  "playerImmediateMaxCells": 3,
+  "coverageThreshold": 11,
+  "scanIntervalTicks": 4,
+  "scanBatch": 48,
+  "rescanDistance": 6,
+  "maxQueued": 6000,
+  "immediateBudgetMs": 6
+}

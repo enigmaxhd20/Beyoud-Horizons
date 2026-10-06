@@ -95,7 +95,7 @@ const player = event.initiator;
      const currentState = player.getDynamicProperty("biome_hud_learning") ?? true;
          const newState = !currentState;
 
-             player.sendMessage(`§eHUD: ${ newState ? "§a activated" : "§c deactivated" } `);
+             player.sendMessage(`§eHUD: ${ newState ? "§a activated" : " deactivated" } `);
 
                  if (!newState) {
                        player.onScreenDisplay.setActionBar("");

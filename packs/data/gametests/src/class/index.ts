@@ -1,5 +1,5 @@
 (async () => {
-  const scripts: string[] = ['./worldClock/index.js', './queuque/index.js'];
+  const scripts: string[] = ['./worldClock/index.js', './queue/index.js'];
 
   let allScriptsLoaded = true;
 

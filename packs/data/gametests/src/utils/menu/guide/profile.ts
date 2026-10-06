@@ -8,6 +8,7 @@ import {
   PlayerAimAssist,
   WorldClock,
   BlockRecipeCraftingComponent,
+  PlayerPermissionLevel,
 } from '@minecraft/server';
 import {
   EntityData,
@@ -27,7 +28,11 @@ import {
   DynamicObject,
 } from '../../../components/player/friends/addFrieds.js';
 import { randomNumber } from '../../../components/generation/random_code/generation.js';
-
+import list from '../data/gameModes.json';
+import {
+  GameModeBlockedWorld,
+  Gmo,
+} from '../../../components/settings/gamemode/gamemode.js';
 const Mycustom = async (player: Player) => {
   const form = new CustomForm(player, { translate: 'bs.title.profile.main' });
   form
@@ -103,7 +108,7 @@ const My_Friends = async (player: Player) => {
             }
           });
         } else {
-
+          break;
         }
       }
     }
@@ -455,9 +460,65 @@ const SettingsMain = async (player: Player) => {
         player.playSound('note.bell');
         await Settings(player);
       },
-    )
-    .closeButton();
+    );
+  if (player.playerPermissionLevel === PlayerPermissionLevel.Operator) {
+    form.button(
+      { translate: 'bs.button.PlayerAdmConfing.SettingsMain' },
+      async () => {
+        form.close();
+        player.playSound('note.bell');
+        await AdmSettings(player);
+      },
+    );
+  }
+  form.closeButton();
 
+  await form.show();
+};
+
+const AdmSettings = async (player: Player) => {
+  const toItems = (list: string[]) =>
+    list.map((n, i) => ({
+      label: n,
+      value: i,
+    }));
+  let form = new CustomForm(player, { translate: 'bs.title.AdmSettings' });
+  const gamemodeStatus =
+    (player.getDynamicProperty('gamemodeB') as boolean) ?? false;
+  const gamemodeB = new ObservableBoolean(gamemodeStatus, {
+    clientWritable: true,
+  });
+  const selecGamemodeBlockStatus: number =
+    (player.getDynamicProperty('selecGamemodeBlocked') as number) ?? 0;
+  const selecGamemodeBlocked = new ObservableNumber(selecGamemodeBlockStatus, {
+    clientWritable: true,
+  });
+
+  gamemodeB.subscribe((v) => player.setDynamicProperty('gamemodeB', v));
+  selecGamemodeBlocked.subscribe((v) =>
+    player.setDynamicProperty('selecGamemodeBlocked', v),
+  );
+
+  const text = list.modes[selecGamemodeBlocked.getData()];
+
+  form
+    .toggle({ translate: 'bs.toggle.gamemodeBlocked.AdmSettings' }, gamemodeB)
+    .dropdown(
+      { translate: 'bs.dropdown.selectGamemodeblock.AdmSettings' },
+      selecGamemodeBlocked,
+      toItems(list.modes),
+      { visible: gamemodeB },
+    );
+
+  if (gamemodeB) {
+    let objgmo: Gmo = {
+      modeBlocked: text,
+    };
+    GameModeBlockedWorld.set('GameMode', JSON.stringify(objgmo));
+  } else {
+    GameModeBlockedWorld.set('GameMode',undefined)
+  }
+  form.closeButton();
   await form.show();
 };
 

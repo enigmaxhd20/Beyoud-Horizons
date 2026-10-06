@@ -72,6 +72,26 @@
 					}
 				]
 			},
+			"build-dev": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"profile": "bundle-base"
+					},
+					{
+						"profile": "bundle-scripts-dev"
+					},
+					{
+						"filter": "package_mcaddon"
+					},
+					{
+						"filter": "export_to_game"
+					}
+				]
+			},
 			"bundle-base": {
 				"export": {
 					"readOnly": false,
@@ -98,6 +118,13 @@
 						"settings": {
 							"buildOptions": {
 								"bundle": true,
+								"dropLabels": [
+									"DEBUG",
+									"LOGGING"
+								],
+								"entryPoints": [
+									"data/gametests/src/copiler.ts"
+								],
 								"format": "esm",
 								"minify": true,
 								"sourcemap": true,
@@ -110,6 +137,37 @@
 								"@minecraft/server-ui@2.4.0-beta"
 							],
 							"outfile": "BP/scripts/main.js"
+						}
+					}
+				]
+			},
+			"bundle-scripts-dev": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "gametests",
+						"settings": {
+							"buildOptions": {
+								"bundle": true,
+								"entryPoints": [
+									"data/gametests/src/copiler.ts"
+								],
+								"format": "esm",
+								"minify": false,
+								"sourcemap": true,
+								"target": "es2020"
+							},
+							"manifest": "BP/manifest.json",
+							"moduleUUID": "4f7c85f8-855c-4a94-b379-3a28efe52a01",
+							"modules": [
+								"@minecraft/server@2.12.0-beta",
+								"@minecraft/server-ui@2.4.0-beta"
+							],
+							"outfile": "BP/scripts/main.js",
+							"debugBuild": true
 						}
 					}
 				]

@@ -1,104 +1,44 @@
-/* r4isen1920によって作成されました | MITライセンス */
-/* Binding version: text comes from the preserved title (data_control) at runtime */
-
 {
+	/* r4isen1920によって作成されました | MITライセンス */
+
 	"namespace": "r4isen1920_waila_common",
-	"waila_data": {
-		"type": "panel",
-		"size": [
-			0,
-			0
-		],
-		"$update_string|default": "waila:",
-		"property_bag": {
-			"#preserved_text": "",
-			"#preserved_sub": "",
-			"#clean": ""
-		},
-		"bindings": [
-			{
-				"binding_name": "#hud_title_text_string"
-			},
-			{
-				"binding_name": "#hud_subtitle_text_string"
-			},
-			{
-				"binding_name": "#hud_title_text_string",
-				"binding_name_override": "#preserved_text",
-				"binding_condition": "visibility_changed"
-			},
-			{
-				"binding_name": "#hud_subtitle_text_string",
-				"binding_name_override": "#preserved_sub",
-				"binding_condition": "visibility_changed"
-			},
-			{
-				"binding_type": "view",
-				"source_property_name": "(((not (#hud_title_text_string = #preserved_text)) or (not (#hud_subtitle_text_string = #preserved_sub))) and (not ((#hud_title_text_string - $update_string) = #hud_title_text_string)))",
-				"target_property_name": "#visible"
-			},
-			{
-				"binding_type": "view",
-				"source_property_name": "(#preserved_text - $update_string - '__r4ui:anchor.top_left__' - '__r4ui:anchor.top_middle__' - '__r4ui:anchor.top_right__' - '__r4ui:anchor.left_middle__' - '__r4ui:anchor.center__' - '__r4ui:anchor.right_middle__' - '__r4ui:anchor.bottom_left__' - '__r4ui:anchor.bottom_middle__' - '__r4ui:anchor.bottom_right__')",
-				"target_property_name": "#clean"
-			}
-		]
-	},
+
 	"label": {
 		"type": "label",
-		"size": [
-			"default",
-			"default"
-		],
+
+		"size": ["default", "default"],
 		"font_scale_factor": 1.0,
 		"localize": false,
 		"shadow": true,
 		"enable_profanity_filter": false,
+
 		"layer": "($layer + 1)"
 	},
+
 	"image": {
 		"type": "image",
+
 		"force_texture_reload": true,
 		"allow_debug_missing_texture": false,
+
 		"layer": "($layer + 1)"
 	},
+
 	"icon_renderer@common.empty_panel": {
-		"size": [
-			"100%c - 0.5px",
-			"100%c - 0.5px"
-		],
+		// this panel just re-centers the image
+		"size": ["100%c - 0.5px", "100%c - 0.5px"],
+
 		"controls": [
 			{
-				"waila_data@r4isen1920_waila_common.waila_data": {}
-			},
-			{
 				"icon@image": {
-					"texture": "#texture",
-					"size": [
-						9,
-						9
-					],
-					"uv_size": [
-						9,
-						9
-					],
-					"layer": 101,
-					"bindings": [
-						{
-							"binding_type": "view",
-							"source_control_name": "waila_data",
-							"resolve_sibling_scope": true,
-							"source_property_name": "(not (($texture = 'x') or ($texture = 'y')))",
-							"target_property_name": "#visible"
-						},
-						{
-							"binding_type": "view",
-							"source_control_name": "waila_data",
-							"resolve_sibling_scope": true,
-							"source_property_name": "('textures/r4isen1920/waila/icons/' + $texture)",
-							"target_property_name": "#texture"
-						}
-					]
+					"$texture_path": "('textures/r4isen1920/waila/icons/' + $texture)",
+					"texture": "$texture_path",
+					"ignored": "(($texture = 'x') or ($texture = 'y'))",
+
+					"size": [9, 9],
+					"uv_size": [9, 9],
+
+					"layer": 101
 				}
 			}
 		]

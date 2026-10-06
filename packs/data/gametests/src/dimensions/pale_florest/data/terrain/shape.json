@@ -1,0 +1,15 @@
+{
+  "baseY": 68,
+  "plainsMinY": 66,
+  "plainsMaxY": 70,
+  "bedrockFloorY": 36,
+  "bedrockLayers": 4,
+  "bedrockChances": [0.9, 0.68, 0.44],
+  "dirtThickness": 3,
+  "octaves": [
+    { "scale": 0.018, "seed": 11, "amplitude": 1.2 },
+    { "scale": 0.03,  "seed": 29, "amplitude": 0.55 },
+    { "scale": 0.055, "seed": 53, "amplitude": 0.12 }
+  ],
+  "blocks": { "air": "air", "bedrock": "bedrock", "stone": "stone", "filler": "dirt" }
+}

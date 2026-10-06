@@ -1,0 +1,25 @@
+{
+  "blocks": {
+    "air": "minecraft:air",
+    "bedrock": "minecraft:bedrock",
+    "stone": "minecraft:stone",
+    "dirt": "minecraft:dirt",
+    "grass": "minecraft:grass_block",
+    "coalOre": "minecraft:coal_ore",
+    "ironOre": "minecraft:iron_ore",
+    "copperOre": "minecraft:copper_ore",
+    "glowstone": "minecraft:glowstone",
+    "paleMoss": "minecraft:pale_moss_block",
+    "paleCarpet": "minecraft:pale_moss_carpet",
+    "paleHangingMoss": "minecraft:pale_hanging_moss",
+    "paleOakLog": "minecraft:pale_oak_log",
+    "paleOakLeaves": "minecraft:pale_oak_leaves",
+    "paleOakPlanks": "minecraft:pale_oak_planks",
+    "paleOakFence": "minecraft:pale_oak_fence",
+    "creakingHeart": "minecraft:creaking_heart",
+    "closedEyeblossom": "minecraft:closed_eyeblossom",
+    "openEyeblossom": "minecraft:open_eyeblossom",
+    "lava": "minecraft:lava",
+    "woodenDoor": "minecraft:wooden_door"
+  }
+}

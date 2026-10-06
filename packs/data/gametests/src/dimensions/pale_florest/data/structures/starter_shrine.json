@@ -1,0 +1,10 @@
+{
+  "id": "starter_shrine",
+  "radius": 2,
+  "clearHeight": 7,
+  "teleportBufferY": 1.01,
+  "reuseDistance": 24,
+  "treeExclusionRadius": 8,
+  "blocks": { "floor": "paleOakPlanks", "fence": "paleOakFence", "door": "woodenDoor", "air": "air" },
+  "door": { "dx": 0, "dz": -1 }
+}

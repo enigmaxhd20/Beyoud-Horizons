@@ -1,132 +1,214 @@
-import { system, world } from "@minecraft/server";
+import {
+  Player,
+  system,
+  world,
+  TitleDisplayOptions,
+  ScriptEventCommandMessageAfterEvent,
+  PlayerJoinAfterEvent,
+  PlayerLeaveAfterEvent,
+} from '@minecraft/server';
 
-let GlobalUIDatabase: any[] = [];
-const TitleOption = { fadeInDuration: 0, fadeOutDuration: 0, stayDuration: 0 };
+interface UIQueueItem {
+  id: string;
+  title?: string;
+  sub?: string;
+  repetition: number;
+}
 
+let GlobalUIDatabase: UI[] = [];
+const TitleOption: TitleDisplayOptions = {
+  fadeInDuration: 0,
+  fadeOutDuration: 0,
+  stayDuration: 0,
+};
+
+// Loop para renderizar a UI de todos os jogadores ativos
 system.runInterval(() => {
-    GlobalUIDatabase.forEach(e => e.renderUI());
+  GlobalUIDatabase.forEach((ui) => ui.renderUI());
 });
 
 export class UI {
-    id: string;
-    source: any;
-    queue: any[];
+  id: string;
+  source: Player;
+  queue: UIQueueItem[];
 
-    constructor(player: any) {
-        this.id = player.id;
-        this.source = player;
-        this.queue = [];
-        GlobalUIDatabase.push(this);
+  constructor(player: Player) {
+    this.id = player.id;
+    this.source = player;
+    this.queue = [];
+    GlobalUIDatabase.push(this);
+  }
+
+  static getUI(player: Player): UI {
+    let data = GlobalUIDatabase.find((f) => f.id === player.id);
+    if (!data) {
+      data = new UI(player);
+    } else {
+      // Atualiza a referência do jogador caso tenha reconectado
+      data.source = player;
+    }
+    return data;
+  }
+
+  static removeUI(playerId: string): void {
+    const index = GlobalUIDatabase.findIndex((f) => f.id === playerId);
+    if (index !== -1) {
+      GlobalUIDatabase[index].queue = [];
+      GlobalUIDatabase.splice(index, 1);
+    }
+  }
+
+  addUI(identifier: string, input: unknown): void {
+    let data = this.queue.find((f) => f.id === identifier);
+    let inQueue = true;
+
+    if (!data) {
+      data = { id: identifier, repetition: 3 };
+      inQueue = false;
     }
 
-    static getUI(player: any): UI {
-        let data = GlobalUIDatabase.find((f: any) => f.id == player.id) as UI | undefined;
-        if(!data) data = new UI(player);
-            
-        return data;
+    let parsedInput: unknown = input;
+    if (typeof input === 'string') {
+      try {
+        parsedInput = JSON.parse(input);
+      } catch {
+        parsedInput = input;
+      }
     }
 
-    addUI(identifier: string, input: any): void {
-        let data = this.queue.find((f: any) => f.id == identifier);
-        let in_queue = true;
-        if(data == undefined){
-            data = { id: identifier };
-            in_queue = false;
-        }
-        try{
-            input = JSON.parse(input);
-        } catch {}
-        data.repetition = 3;
-        if(typeof input === "number") input = input.toString();
-        data.title = input;
-        if(!in_queue) this.queue.push(data);
+    data.repetition = 3;
+    data.title =
+      typeof parsedInput === 'number'
+        ? parsedInput.toString()
+        : String(parsedInput);
+
+    if (!inQueue) this.queue.push(data);
+  }
+
+  addUISub(identifier: string, input: unknown): void {
+    let data = this.queue.find((f) => f.id === identifier);
+    let inQueue = true;
+
+    if (!data) {
+      data = { id: identifier, repetition: 3 };
+      inQueue = false;
     }
 
-    addUISub(identifier: string, input: any): void {
-        let data = this.queue.find((f: any) => f.id == identifier);
-        let in_queue = true;
-        if(data == undefined){
-            data = { id: identifier };
-            in_queue = false;
-        }
-        try{
-            input = JSON.parse(input);
-        } catch {}
-        data.repetition = 3;
-        if(typeof input === "number") input = input.toString();
-        data.sub = input;
-        if(!in_queue) this.queue.push(data);
+    let parsedInput: unknown = input;
+    if (typeof input === 'string') {
+      try {
+        parsedInput = JSON.parse(input);
+      } catch {
+        parsedInput = input;
+      }
     }
 
-    renderUI(): void {
-        if(this.queue.length == 0) return;
+    data.repetition = 3;
+    data.sub =
+      typeof parsedInput === 'number'
+        ? parsedInput.toString()
+        : String(parsedInput);
 
-        let current = this.queue.shift() as any;
-        
-        if(current.title != undefined){
-            let option: any = { ...TitleOption };
-            option.subtitle = current.sub;
-            this.source.onScreenDisplay.setTitle(current.title, option);
-        }
+    if (!inQueue) this.queue.push(data);
+  }
 
-        if(current.repetition > 0){
-            current.repetition -= 1;
-            this.queue.push(current);
-        }
+  renderUI(): void {
+    // 1. Se a fila estiver vazia, não há o que processar
+    if (this.queue.length === 0) return;
+
+    // 2. Valida se a entidade do jogador está pronta/carregada (isValid === true).
+    // A checagem é feita sem parênteses (), pois 'isValid' é uma propriedade booleana.
+    if (!this.source || !this.source.isValid) return;
+
+    // 3. O jogador está válido: desempilha o primeiro item da fila
+    const current = this.queue.shift();
+    if (!current) return;
+
+    if (current.title !== undefined) {
+      const option: TitleDisplayOptions = {
+        ...TitleOption,
+        subtitle: current.sub,
+      };
+      this.source.onScreenDisplay.setTitle(current.title, option);
     }
 
-    remove(): void {
-        GlobalUIDatabase = GlobalUIDatabase.filter(f => f.id != this.id);
-        this.queue = [];
-        this.source = null;
+    if (current.repetition > 0) {
+      current.repetition -= 1;
+      this.queue.push(current);
     }
+  }
 }
 
-export function handleUILoadOld(s: any): void {
-	if(s.id != "ui:set") return;
-    const ui_data = UI.getUI(s.sourceEntity);
-    const data = s.message.split(" ");
-    const identifier = data[1];
-    ui_data.addUI(identifier, s.message.replace(" ", ""));
+// Handlers de ScriptEvent (scriptevent ui:set <identifier> <message>)
+export function handleUILoadOld(s: ScriptEventCommandMessageAfterEvent): void {
+  if (s.id !== 'ui:set' || !(s.sourceEntity instanceof Player)) return;
+
+  const uiData = UI.getUI(s.sourceEntity);
+  const spaceIndex = s.message.indexOf(' ');
+  if (spaceIndex === -1) return;
+
+  const identifier = s.message.substring(0, spaceIndex);
+  const content = s.message.substring(spaceIndex + 1);
+
+  uiData.addUI(identifier, content);
 }
 
-export function handleUILoadLegacy(s: any): void {
-    const ui_data = UI.getUI(s.sourceEntity);
-    const identifier = s.id.split(":")[1];
-    ui_data.addUI(identifier, s.message);
+export function handleUILoadLegacy(
+  s: ScriptEventCommandMessageAfterEvent,
+): void {
+  if (!(s.sourceEntity instanceof Player)) return;
+
+  const uiData = UI.getUI(s.sourceEntity);
+  const identifier = s.id.split(':')[1];
+  uiData.addUI(identifier, s.message);
 }
 
-export function handleUISubLoadLegacy(s: any): void {
-    const ui_data = UI.getUI(s.sourceEntity);
-    const identifier = s.id.split(":")[1];
-    ui_data.addUISub(identifier, s.message);
+export function handleUISubLoadLegacy(
+  s: ScriptEventCommandMessageAfterEvent,
+): void {
+  if (!(s.sourceEntity instanceof Player)) return;
+
+  const uiData = UI.getUI(s.sourceEntity);
+  const identifier = s.id.split(':')[1];
+  uiData.addUISub(identifier, s.message);
 }
 
-export function handleUILoad(s: any): void {
-    const data = s.message.split("|");
-    const ui_data = UI.getUI(world.getEntity(data[0]));
-    const identifier = s.id.split(":")[1];
-    ui_data.addUI(identifier, s.message.substring(data[0].length + 1));
+export function handleUILoad(s: ScriptEventCommandMessageAfterEvent): void {
+  const data = s.message.split('|');
+  const targetEntity = world.getEntity(data[0]);
+
+  if (!(targetEntity instanceof Player)) return;
+
+  const uiData = UI.getUI(targetEntity);
+  const identifier = s.id.split(':')[1];
+  uiData.addUI(identifier, s.message.substring(data[0].length + 1));
 }
 
-export function handleUISubLoad(s: any): void {
-    const data = s.message.split("|");
-    const ui_data = UI.getUI(world.getEntity(data[0]));
-    const identifier = s.id.split(":")[1];
-    ui_data.addUISub(identifier, s.message.substring(data[0].length + 1));
+export function handleUISubLoad(s: ScriptEventCommandMessageAfterEvent): void {
+  const data = s.message.split('|');
+  const targetEntity = world.getEntity(data[0]);
+
+  if (!(targetEntity instanceof Player)) return;
+
+  const uiData = UI.getUI(targetEntity);
+  const identifier = s.id.split(':')[1];
+  uiData.addUISub(identifier, s.message.substring(data[0].length + 1));
 }
 
-export function handlePlayerJoin(s: any): void {
-    if(!s.initialSpawn) return;
-    if(!UI.getUI(s.player)) new UI(s.player);
+// Handlers de Eventos de Jogador e Mundo
+export function handlePlayerJoin(s: PlayerJoinAfterEvent): void {
+  const player = world.getEntity(s.playerId);
+  if (player instanceof Player) {
+    UI.getUI(player);
+  }
 }
 
 export function handleWorldLoad(): void {
-    world.getPlayers().forEach(player =>{ 
-        if(!UI.getUI(player)) new UI(player);
-    });
+  world.getPlayers().forEach((player) => {
+    UI.getUI(player);
+  });
 }
 
-export function handlePlayerLeave(s: any): void {
-    UI.getUI(s.player).remove();
+export function handlePlayerLeave(s: PlayerLeaveAfterEvent): void {
+  UI.removeUI(s.playerId);
 }

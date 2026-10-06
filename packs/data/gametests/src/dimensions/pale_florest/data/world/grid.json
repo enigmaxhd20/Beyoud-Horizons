@@ -1,0 +1,6 @@
+{
+  "_doc": "Generation rows: cellX = width (1 = thin one-block rows), cellZ = length (long along the Z axis). featureRegion = size of the grid on which trees and lava pools are laid out (independent of the cell size).",
+  "cellX": 1,
+  "cellZ": 32,
+  "featureRegion": 32
+}

@@ -1,0 +1,9 @@
+{
+  "id": "paleforest:pale_forest",
+  "shrine": "starter_shrine",
+  "fogId": "paleforest:pale_forest_fog",
+  "fogLayerId": "paleforest_layer",
+  "returnPropertyKey": "paleforest:return",
+  "shrinesPropertyKey": "paleforest:shrines",
+  "gameModePropertyKey": "paleforest:prev_gamemode"
+}

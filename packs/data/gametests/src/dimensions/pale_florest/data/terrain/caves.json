@@ -1,0 +1,15 @@
+{
+  "cellSize": 32,
+  "margin": 40,
+  "minStepLength": 11,
+  "maxStepLength": 24,
+  "branchChance": 0.18,
+  "systemChance": 0.78,
+  "extraSystemChance": 0.28,
+  "surfaceSystemChance": 0.64,
+  "surfaceOpeningChance": 0.74,
+  "ravineChance": 0.24,
+  "openingLengthMin": 5,
+  "openingLengthMax": 10,
+  "carvable": ["stone", "coalOre", "ironOre", "copperOre", "glowstone", "dirt", "grass", "paleMoss", "paleCarpet", "closedEyeblossom", "openEyeblossom"]
+}

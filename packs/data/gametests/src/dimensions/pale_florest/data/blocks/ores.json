@@ -1,0 +1,26 @@
+{
+  "_doc": "Rules are evaluated in order; the first one that passes wins. Each 3D noise is valueNoise3D(x*scale+ox, y*scale+oy, z*scale+oz, seed) and ALL of them must pass the threshold. minY = absolute minimum y; maxBelowTop = y <= topY - maxBelowTop.",
+  "scanMaxY": 96,
+  "rules": [
+    { "id": "glowstone", "block": "glowstone", "minY": 43, "maxBelowTop": 4,
+      "noises": [
+        { "scale": 0.12, "offset": [0, 0, 0],    "seed": 751, "threshold": 0.79 },
+        { "scale": 0.24, "offset": [13, -7, 19], "seed": 769, "threshold": 0.58 }
+      ] },
+    { "id": "copper", "block": "copperOre", "minY": 42, "maxBelowTop": 5,
+      "noises": [
+        { "scale": 0.215, "offset": [-5, 13, -17], "seed": 1237, "threshold": 0.953 },
+        { "scale": 0.11,  "offset": [4, -2, 9],    "seed": 1259, "threshold": 0.56 }
+      ] },
+    { "id": "iron", "block": "ironOre", "minY": 42, "maxBelowTop": 5,
+      "noises": [
+        { "scale": 0.205, "offset": [11, -9, 7],  "seed": 1217, "threshold": 0.935 },
+        { "scale": 0.1,   "offset": [-3, 6, -12], "seed": 1279, "threshold": 0.53 }
+      ] },
+    { "id": "coal", "block": "coalOre", "minY": 42, "maxBelowTop": 5,
+      "noises": [
+        { "scale": 0.19, "offset": [0, 0, 0],    "seed": 1201, "threshold": 0.912 },
+        { "scale": 0.1,  "offset": [19, 8, -15], "seed": 1291, "threshold": 0.48 }
+      ] }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "enabled": true,
+  "height": 56,
+  "coverage": 0.46,
+  "blendWidth": 0.18,
+  "frequency": 0.0048,
+  "regionOffset": [40, -25],
+  "regionSeed": 301,
+  "ridgeSeed": 317,
+  "ridgeFrequencyMul": 2.3,
+  "ridgePower": 1.6,
+  "baseBody": 0.22,
+  "rough": [
+    { "scale": 0.045, "seed": 331, "amplitude": 6 },
+    { "scale": 0.11,  "seed": 347, "amplitude": 2 }
+  ],
+  "clearCenter": { "x": 0, "z": 0 },
+  "clearInner": 30,
+  "clearOuter": 90,
+  "extraHeadroom": 12
+}

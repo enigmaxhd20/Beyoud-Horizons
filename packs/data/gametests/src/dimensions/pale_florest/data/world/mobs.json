@@ -1,0 +1,14 @@
+{
+  "warden": {
+    "checkIntervalTicks": 1200,
+    "spawnChance": 0.02,
+    "minSpawnDistance": 18,
+    "maxSpawnDistance": 32,
+    "existingRadius": 96,
+    "spawnAttempts": 8
+  },
+  "creakingTrialKey": {
+    "dropChance": 0.025,
+    "entityCooldownTicks": 30
+  }
+}

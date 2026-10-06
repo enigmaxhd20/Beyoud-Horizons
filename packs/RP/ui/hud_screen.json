@@ -26,7 +26,7 @@
         "value": [
           {
             "binding_type": "view",
-            "source_property_name": "(not ('%.6s' * #text = 'waila:') and not ('%.11s' * #text = 'biome_find:'))",
+            "source_property_name": "('%.6s' * #text = '_r4ui:' - '%.11s' * #text = 'biome_find:')",
             "target_property_name": "#visible"
           }
         ]
@@ -55,12 +55,25 @@
             }
           },
           {
-            /* WAILA persistente: NAO usar factory aqui.
-               A hud_title_text_factory cria o controle quando o titulo aparece e o destroi
-               quando ele expira, o que zera o property_bag do waila_data_control.
-               Montado direto no root_panel, o centerer vive o tempo todo e o valor
-               guardado sobrevive a qualquer outro titulo. */
-            "waila@r4isen1920_waila_main.centerer": {}
+            "waila@common.empty_panel": {
+              "$anchor": "center",
+              "anchor_from": "$anchor",
+              "anchor_to": "$anchor",
+              "size": [
+                "100%",
+                "100%"
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "factory": {
+                "name": "hud_title_text_factory",
+                "control_ids": {
+                  "hud_title_text": "disp@r4isen1920_waila_main.centerer"
+                }
+              }
+            }
           }
         ]
       }

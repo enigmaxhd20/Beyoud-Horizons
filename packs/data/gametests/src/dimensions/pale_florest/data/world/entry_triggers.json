@@ -1,0 +1,13 @@
+{
+  "_doc": "direction: enter|exit | kind: block|item | blocks/item: ids | consumeItem | sneak | sound",
+  "enabled": true,
+  "commandsEnabled": true,
+  "triggers": [
+    { "enabled": true, "direction": "enter", "kind": "block", "blocks": ["minecraft:pale_oak_door"], "item": "minecraft:trial_key", "consumeItem": true, "sound": true },
+    { "enabled": true, "direction": "exit",  "kind": "block", "blocks": ["minecraft:oak_door", "minecraft:wooden_door"], "item": "minecraft:trial_key", "consumeItem": true, "sound": true },
+    { "enabled": false, "direction": "enter", "kind": "block", "blocks": ["minecraft:pale_oak_door"], "sound": true },
+    { "enabled": false, "direction": "enter", "kind": "item", "item": "minecraft:ender_eye", "consumeItem": true, "sound": true },
+    { "enabled": false, "direction": "exit",  "kind": "item", "item": "minecraft:ender_eye", "consumeItem": false, "sneak": true, "sound": true },
+    { "enabled": false, "direction": "enter", "kind": "block", "blocks": ["minecraft:creaking_heart"], "sneak": true, "sound": false }
+  ]
+}

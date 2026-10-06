@@ -41,46 +41,32 @@
   "json.schemaDownload.enable": true,
   "json.schemas": [
     {
-      "fileMatch": [
-        "RP/manifest.json"
-      ],
+      "fileMatch": ["packs/RP/manifest.json"],
       "url": "https://bedrock-studio.github.io/bedrock-json-schemas/manifest.json"
     },
     {
-      "fileMatch": [
-        "RP/*.animation_controllers.json"
-      ],
+      "fileMatch": ["packs/RP/**/*.animation_controllers.json"],
       "url": "https://bedrock-studio.github.io/bedrock-json-schemas/animation_controller.json"
     },
     {
-      "fileMatch": [
-        "RP/*.animation.json"
-      ],
+      "fileMatch": ["packs/RP/**/*.animation.json"],
       "url": "https://bedrock-studio.github.io/bedrock-json-schemas/animation.json"
     },
     {
-      "fileMatch": [
-        "RP/*.entity.json"
-      ],
+      "fileMatch": ["packs/RP/**/*.entity.json"],
       "url": "https://bedrock-studio.github.io/bedrock-json-schemas/actor_resource_definition.json"
     },
     {
-      "fileMatch": [
-        "**/attachables/**/*.json"
-      ],
-      "url": "./attachables.schema.json"
+      "fileMatch": ["**/attachables/**/*.json"],
+      "url": "./.vscode/attachables.schema.json"
     },
     {
-      "fileMatch": [
-        "RP/*.render_controllers.json"
-      ],
+      "fileMatch": ["packs/RP/**/*.render_controllers.json"],
       "url": "https://bedrock-studio.github.io/bedrock-json-schemas/render_controller.json"
     },
     {
-      "fileMatch": [
-        "**/models/**/*.json"
-      ],
-      "url": "./model_entity.schema.json"
+      "fileMatch": ["**/models/**/*.json"],
+      "url": "./.vscode/model_entity.schema.json"
     }
   ],
   "workbench.editor.enablePreviewFromCodeNavigation": true,

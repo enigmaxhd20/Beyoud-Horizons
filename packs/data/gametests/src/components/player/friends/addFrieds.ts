@@ -3,7 +3,7 @@ import { Player } from '@minecraft/server';
 export interface DynamicObject {
   id: string;
   nameTag: string;
-  status: string;
+  status: string | undefined;
 }
 
 export class DynamicDefinitions {

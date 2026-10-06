@@ -1,0 +1,7 @@
+{
+  "paleforest": {
+    "event_name": "music.game.paleforest.ominous_song",
+    "min_delay": 0,
+    "max_delay": 1
+  }
+}

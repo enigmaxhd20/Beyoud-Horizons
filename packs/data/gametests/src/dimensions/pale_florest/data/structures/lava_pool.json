@@ -1,0 +1,9 @@
+{
+  "id": "lava_pool",
+  "blocks": { "liquid": "lava", "rim": "stone", "air": "air" },
+  "radius": { "min": 3, "variance": 2 },
+  "stonePad": 1.7,
+  "outerPad": 2.5,
+  "maxSlope": 2,
+  "surfaceBlocks": ["grass", "paleMoss"]
+}

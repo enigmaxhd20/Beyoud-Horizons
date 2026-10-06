@@ -25,7 +25,7 @@ const Color = {
   bold: "\xA7l",
   reset: "\xA7r",
 };
-const DimensionsUi = async (player) => {
+const DimensionsUi = async (player:Player) => {
   let form: any = new ActionFormData();
   let DimensionsList = WorldData.getIdsByPrefix(`dim:`); //
   form.title(`§l§r dimension of ${player.nameTag}`);
@@ -67,7 +67,7 @@ const DimensionsUi = async (player) => {
   }
 };
 
-const ComingSoon = async (player) => {
+const ComingSoon = async (player:Player) => {
   let form = new MessageFormData()
   form.title("The feature will arrive soon. ")
     .body("The feature is still under development, so it's not possible to use it yet, but stay tuned for updates. ")
@@ -83,7 +83,7 @@ const ComingSoon = async (player) => {
   }
 }
 //creation menu 
-const CreatDimension = async (player) => {
+const CreatDimension = async (player:Player) => {
   let form: any = new ModalFormData()
   form.title("§l§7Maker dimensions")
     .textField("dimension_id", "Dimension name, e.g., french fries ")
